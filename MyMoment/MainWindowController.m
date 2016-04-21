@@ -20,7 +20,6 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     self.window.titleVisibility=NSWindowTitleHidden;
     self.window.titlebarAppearsTransparent=YES;
     self.window.styleMask|=NSFullSizeContentViewWindowMask;
@@ -30,15 +29,10 @@
     NSRect rigsterFrame=NSMakeRect(0, 47.5, 179, 468);
     [self.registerViewController.view setFrame:rigsterFrame];
     
-      [self.window.contentView addSubview:self.registerViewController.view];
+    [self.window.contentView addSubview:self.registerViewController.view];
     self.mainView=[self.mainTab tabViewItemAtIndex:0].view;
     self.movieView=[self.mainTab tabViewItemAtIndex:1].view;
     self.musicView=[self.mainTab tabViewItemAtIndex:2].view;
-    
-   
-    //self.mainMovieScrollView.hasHorizontalScroller=YES;
-    //[self.mainMovieScrollView setNeedsDisplay:YES];
-    
 }
 
 -(id)initWithWindowNibName:(NSString *)windowNibName{
