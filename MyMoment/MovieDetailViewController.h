@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "Message.h"
 @interface MovieDetailViewController : NSViewController<NSTableViewDelegate,NSTableViewDataSource>
 { int score;
 }
@@ -18,7 +18,7 @@
 @property IBOutlet NSButton *fourScoreBtn;
 @property IBOutlet NSButton *fiveScoreBtn;
 @property IBOutlet NSTextField *scoreTextField;
-@property NSMutableArray *messageArray;
+@property NSMutableArray *messageMutableArray;
 @property IBOutlet NSButton *submitMessageBtn;
 @property IBOutlet NSTextField *messageTextField;
 @property IBOutlet NSTableView *messageTableView;
@@ -32,4 +32,6 @@
 @property IBOutlet NSTextField *authorLabel;
 @property IBOutlet NSImageView *resultStarImageView;
 @property IBOutlet NSTextField *resultScoreLabel;
+
+@property Message *temperMessage;
 @end

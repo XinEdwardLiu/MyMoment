@@ -8,12 +8,17 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MainWindowController.h"
+#import "Movie.h"
+#import "Music.h"
 
 
 static BOOL staticAccountState;
 static NSMutableArray *staticCommentMutableArray;
 static NSMutableArray *staticMovieMutableArray;
 static NSMutableArray *staticMusicMutableArray;
+static NSMutableArray *staticMovieScoreRankingMutableArray;
+static Movie *staticMovie;
+static Movie *staticScoreRankingMovie;
 
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
@@ -32,8 +37,17 @@ static NSMutableArray *staticMusicMutableArray;
 +(NSMutableArray *)getStaticMovieMutableArray;
 +(NSMutableArray *)setStaticMovieMutableArray:(NSMutableArray *)newMovieMutableArray;
 
++(NSMutableArray *)getStaticMovieScoreRankingMutableArray;
++(NSMutableArray *)setStaticMovieScoreRankingMutableArray:(NSMutableArray *)newMovieMutableArray;
+
 +(NSMutableArray *)getStaticMusicMutableArray;
 +(NSMutableArray *)setStaticMusicMutableArray:(NSMutableArray *)newMusicMutableArray;
+
++(Movie *)getStaticMovie;
++(Movie *)setStaticMovie:(Movie *)newMovie;
+
++(Movie *)getStaticScoreRankingMovie;
++(Movie *)setStaticScoreRankingMovie:(Movie *)newMovie;
 
 @end
 

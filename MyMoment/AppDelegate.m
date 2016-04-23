@@ -10,6 +10,7 @@
 #import "MainWindowController.h"
 #import "Movie.h"
 #import "Music.h"
+#import "Message.h"
 
 @interface AppDelegate ()
 //@property (strong) IBOutlet MainWindowController* mainWindowController;
@@ -22,9 +23,13 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    dateFormatter.timeStyle = NSDateFormatterShortStyle;
     
-    NSString *firstComment=@"沙发，欢迎评论！";
-    NSMutableArray *commentMutableArray=[[NSMutableArray alloc]initWithObjects:firstComment, nil];
+    NSString *currentTime=[dateFormatter stringFromDate:[NSDate date]];
+    Message *firstMessage=[[Message alloc]initWithSender:@"楼主" WithComment:@"沙发，欢迎评论！" WithTime:currentTime];
+    NSMutableArray *commentMutableArray=[[NSMutableArray alloc]initWithObjects:firstMessage, nil];
     [AppDelegate setStaticCommentMutableArray:commentMutableArray];
     
     Music *music1=[[Music alloc]initWithName:@"Let It Go" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray WithScore:5];
@@ -54,29 +59,32 @@
     
     
     Movie *movie1=[[Movie alloc]initWithName:@"澳门风云" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
-    Movie *movie2=[[Movie alloc]initWithName:@"精武门" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
-    Movie *movie3=[[Movie alloc]initWithName:@"色即是空" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
-    Movie *movie4=[[Movie alloc]initWithName:@"笑傲江湖" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
-    Movie *movie5=[[Movie alloc]initWithName:@"西游记" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:4.0];
+    Movie *movie2=[[Movie alloc]initWithName:@"精武门" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:4.9];
+    Movie *movie3=[[Movie alloc]initWithName:@"色即是空" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:3.0];
+    Movie *movie4=[[Movie alloc]initWithName:@"笑傲江湖" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:3.5];
+    Movie *movie5=[[Movie alloc]initWithName:@"西游记" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:4.5];
     Movie *movie6=[[Movie alloc]initWithName:@"美人鱼" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:3.0];
     Movie *movie7=[[Movie alloc]initWithName:@"三打白骨精" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:2.0];
-    Movie *movie8=[[Movie alloc]initWithName:@"功夫熊猫" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
-    Movie *movie9=[[Movie alloc]initWithName:@"水浒传" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
-    Movie *movie10=[[Movie alloc]initWithName:@"三国演义" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
-    Movie *movie11=[[Movie alloc]initWithName:@"红楼梦" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
-    Movie *movie12=[[Movie alloc]initWithName:@"鹿鼎记" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
-    Movie *movie13=[[Movie alloc]initWithName:@"大话西游" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
-    Movie *movie14=[[Movie alloc]initWithName:@"九品芝麻官" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
-    Movie *movie15=[[Movie alloc]initWithName:@"大内密探" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
-    Movie *movie16=[[Movie alloc]initWithName:@"情深深雨蒙蒙" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
+    Movie *movie8=[[Movie alloc]initWithName:@"功夫熊猫" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:2.5];
+    Movie *movie9=[[Movie alloc]initWithName:@"水浒传" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:3.0];
+    Movie *movie10=[[Movie alloc]initWithName:@"三国演义" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:3.5];
+    Movie *movie11=[[Movie alloc]initWithName:@"红楼梦" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:4.0];
+    Movie *movie12=[[Movie alloc]initWithName:@"鹿鼎记" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:4.2];
+    Movie *movie13=[[Movie alloc]initWithName:@"大话西游" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:4.5];
+    Movie *movie14=[[Movie alloc]initWithName:@"九品芝麻官" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:4.6];
+    Movie *movie15=[[Movie alloc]initWithName:@"大内密探" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:4.7];
+    Movie *movie16=[[Movie alloc]initWithName:@"情深深雨蒙蒙" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:4.8];
     Movie *movie17=[[Movie alloc]initWithName:@"黄飞鸿" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:4.0];
     Movie *movie18=[[Movie alloc]initWithName:@"东方不败" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:3.0];
-    Movie *movie19=[[Movie alloc]initWithName:@"神雕侠侣" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
+    Movie *movie19=[[Movie alloc]initWithName:@"神雕侠侣" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:4.9];
     Movie *movie20=[[Movie alloc]initWithName:@"光头强" WithImage:[NSImage imageNamed:@"澳门风云"] WithTypes:@"剧情" WithAuthor:@"Coco" WithIntroduction:@"剧情简介" WithCommentMutableArray:commentMutableArray WithScore:5.0];
 
     NSMutableArray *movieMutableArray=[[NSMutableArray alloc]initWithObjects:movie1,movie2,movie3,movie4,movie5,movie6,movie7,movie8,movie9,movie10,movie11,movie12,movie13,movie14,movie15,movie16,movie17,movie18,movie19,movie20, nil];
     [AppDelegate setStaticMovieMutableArray:movieMutableArray];
     
+    
+    [AppDelegate setStaticMovieScoreRankingMutableArray:movieMutableArray];
+
     self.mainWindowController=[[MainWindowController alloc]initWithWindowNibName:@"MainWindow"];
     BOOL accountState=NO;
     [AppDelegate setStaticAcccountState:accountState];
@@ -115,6 +123,14 @@
     return staticMovieMutableArray;
 }
 
++(NSMutableArray *)getStaticMovieScoreRankingMutableArray{
+    return staticMovieScoreRankingMutableArray;
+}
++(NSMutableArray *)setStaticMovieScoreRankingMutableArray:(NSMutableArray *)newMovieMutableArray{
+    staticMovieScoreRankingMutableArray=newMovieMutableArray;
+    return staticMovieScoreRankingMutableArray;
+}
+
 +(NSMutableArray *)getStaticMusicMutableArray{
     return staticMusicMutableArray;
 }
@@ -123,6 +139,23 @@
     return staticMusicMutableArray;
 }
 
++(Movie *)getStaticMovie{
+    return  staticMovie;
+}
+
++(Movie *)setStaticMovie:(Movie *)newMovie{
+    staticMovie=newMovie;
+    return staticMovie;
+}
+
++(Movie *)getStaticScoreRankingMovie{
+    return  staticScoreRankingMovie;
+}
+
++(Movie *)setStaticScoreRankingMovie:(Movie *)newMovie{
+    staticScoreRankingMovie=newMovie;
+    return staticScoreRankingMovie;
+}
 
 #pragma mark - Core Data stack
 

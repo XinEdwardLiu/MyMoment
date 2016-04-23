@@ -27,4 +27,16 @@
 @property IBOutlet NSScrollView *mainMovieScrollView;
 @property IBOutlet NSButton *mainMovieBtn;
 @property IBOutlet NSButton *mainMusicBtn;
+
+
+@property IBOutlet NSTableView *movieAllTableView;
+@property IBOutlet NSTableView *movieScoreRankingTableView;
+@property IBOutlet NSButton *movieImageBtn;
+@property IBOutlet NSScrollView *movieScrollView;
+
+@property IBOutlet NSTableView *musicAllTableView;
+@property IBOutlet NSTableView *musicScoreRankingTableView;
+@property IBOutlet NSButton *musicImageBtn;
+@property IBOutlet NSScrollView *musicScrollView;
+
 @end

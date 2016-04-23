@@ -20,6 +20,7 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     
+    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     self.window.titleVisibility=NSWindowTitleHidden;
     self.window.titlebarAppearsTransparent=YES;
     self.window.styleMask|=NSFullSizeContentViewWindowMask;
@@ -29,10 +30,15 @@
     NSRect rigsterFrame=NSMakeRect(0, 47.5, 179, 468);
     [self.registerViewController.view setFrame:rigsterFrame];
     
-    [self.window.contentView addSubview:self.registerViewController.view];
+      [self.window.contentView addSubview:self.registerViewController.view];
     self.mainView=[self.mainTab tabViewItemAtIndex:0].view;
     self.movieView=[self.mainTab tabViewItemAtIndex:1].view;
     self.musicView=[self.mainTab tabViewItemAtIndex:2].view;
+    
+
+    //self.mainMovieScrollView.hasHorizontalScroller=YES;
+    //[self.mainMovieScrollView setNeedsDisplay:YES];
+    
 }
 
 -(id)initWithWindowNibName:(NSString *)windowNibName{
@@ -59,8 +65,8 @@
 }
 
 -(IBAction)clickMovieBtn:(id)sender{
-NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
-   
+    [self.movieScoreRankingTableView reloadData];
+    NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     [self.movieView setFrame:showFrame];
     [self.mainView setHidden:YES];
     [self.movieView setHidden:NO];
@@ -93,51 +99,63 @@ NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
 }
 
 
-
 -(IBAction)clickMovieTableView:(id)sender{
-    NSLog(@"%ld",self.mainMovieTableView.selectedRow);
     NSInteger row=self.mainMovieTableView.selectedRow;
-    NSMutableArray *mainMovieMutableArry=[AppDelegate getStaticMovieMutableArray];
     
+    NSMutableArray *mainMovieMutableArray=[AppDelegate getStaticMovieMutableArray];
+    Movie *selectedMovie=[mainMovieMutableArray objectAtIndex:row];
+    [AppDelegate setStaticMovie:selectedMovie];
     
     NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     self.movieDetailViewController=[[MovieDetailViewController alloc]initWithNibName:@"MovieDetailViewController" bundle:nil];
     self.movieDetailView=self.movieDetailViewController.view;
     [self.movieDetailView setFrame:showFrame];
     [self.mainView setHidden:YES];
-    self.movieDetailViewController.nameLabel.stringValue=[[mainMovieMutableArry objectAtIndex:row] valueForKey:@"name"];
-    self.movieDetailViewController.styleLabel.stringValue=[[mainMovieMutableArry objectAtIndex:row] valueForKey:@"types"];
-    self.movieDetailViewController.authorLabel.stringValue=[[mainMovieMutableArry objectAtIndex:row] valueForKey:@"author"];
-    self.movieDetailViewController.introductionLabel.stringValue=[[mainMovieMutableArry objectAtIndex:row] valueForKey:@"introduction"];
-    self.movieDetailViewController.resultScoreLabel.stringValue=[[mainMovieMutableArry objectAtIndex:row] valueForKey:@"score"];
-    float score=[[[mainMovieMutableArry objectAtIndex:row] valueForKey:@"score"] floatValue];
-    
-    NSImage *scoreStarImage;
-    
-    if (score==5.0) {
-        scoreStarImage=[NSImage imageNamed:@"5star"];
-    }
-    else if(score==4.0){
-        scoreStarImage=[NSImage imageNamed:@"4star"];
-    }
-    else if(score==3.0){
-        scoreStarImage=[NSImage imageNamed:@"3star"];
-    }
-    else if(score==2.0){
-        scoreStarImage=[NSImage imageNamed:@"2star"];
-    }
-    else if(score==1.0){
-        scoreStarImage=[NSImage imageNamed:@"1star"];
-    }
-        [self.movieDetailViewController.resultStarImageView setImage:scoreStarImage];
-    NSMutableArray *messageMutableArray=[[NSMutableArray alloc]init];
-    messageMutableArray=[[mainMovieMutableArry objectAtIndex:row] valueForKey:@"commentMutableArray"];
-    NSLog(@"%@",[messageMutableArray objectAtIndex:0]);
     [self.window.contentView addSubview:self.movieDetailView];
-    
 }
 
+-(IBAction)clickMovieAllTableView:(id)sender{
+    NSInteger row=self.movieAllTableView.selectedRow;
+    
+    NSMutableArray *mainMovieMutableArray=[AppDelegate getStaticMovieMutableArray];
+    Movie *selectedMovie=[mainMovieMutableArray objectAtIndex:row];
+    [AppDelegate setStaticMovie:selectedMovie];
+    
+    NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
+    self.movieDetailViewController=[[MovieDetailViewController alloc]initWithNibName:@"MovieDetailViewController" bundle:nil];
+    self.movieDetailView=self.movieDetailViewController.view;
+    [self.movieDetailView setFrame:showFrame];
+    [self.mainView setHidden:YES];
+    [self.movieView setHidden:YES];
+    [self.window.contentView addSubview:self.movieDetailView];
+}
 
+-(IBAction)clickMovieScoreRankingTableView:(id)sender{
+    NSInteger row=self.movieScoreRankingTableView.selectedRow;
+    
+    NSMutableArray *mainMovieMutableArray=[AppDelegate getStaticMovieMutableArray];
+    
+    NSSortDescriptor *scoreDescriptor = [[NSSortDescriptor alloc] initWithKey:@"score" ascending:NO];
+    NSArray *sortDescriptors = @[scoreDescriptor];
+    NSArray *sortedArray = [mainMovieMutableArray sortedArrayUsingDescriptors:sortDescriptors];
+    
+    
+    NSMutableArray *mainMovieScoreRankingMutaleArray=[[NSMutableArray alloc]initWithArray:sortedArray];
+    
+    Movie *selectedMovie=[mainMovieScoreRankingMutaleArray objectAtIndex:row];
+    //[AppDelegate setStaticScoreRankingMovie:selectedMovie];
+    [AppDelegate setStaticMovie:selectedMovie];
+    
+    NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
+    self.movieDetailViewController=[[MovieDetailViewController alloc]initWithNibName:@"MovieDetailViewController" bundle:nil];
+    self.movieDetailView=self.movieDetailViewController.view;
+    [self.movieDetailView setFrame:showFrame];
+    [self.mainView setHidden:YES];
+    [self.movieView setHidden:YES];
+    [self.window.contentView addSubview:self.movieDetailView];
+    
+
+}
 
 
 @end

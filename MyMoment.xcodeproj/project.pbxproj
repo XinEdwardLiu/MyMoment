@@ -18,6 +18,11 @@
 		BD11A1AD1C9FDD3E00087582 /* RigisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD11A1AB1C9FDD3E00087582 /* RigisterViewController.xib */; };
 		BD34B26E1CB608280070376B /* 未标题-2.png in Resources */ = {isa = PBXBuildFile; fileRef = BD34B26D1CB608280070376B /* 未标题-2.png */; };
 		BD34B2701CB751880070376B /* 澳门风云.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD34B26F1CB751880070376B /* 澳门风云.jpg */; };
+		BD37693E1CCA771600392C63 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = BD37693D1CCA771600392C63 /* Message.m */; };
+		BD3769411CCA98BB00392C63 /* MovieAllTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3769401CCA98BB00392C63 /* MovieAllTableViewController.m */; };
+		BD3769441CCA98FA00392C63 /* MovieScoreRankingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3769431CCA98FA00392C63 /* MovieScoreRankingTableView.m */; };
+		BD3769471CCA992500392C63 /* MusicAllTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3769461CCA992500392C63 /* MusicAllTableViewController.m */; };
+		BD37694A1CCA994B00392C63 /* MusicScoreRankingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3769491CCA994B00392C63 /* MusicScoreRankingTableView.m */; };
 		BD55C3021CBDA24F00610137 /* 1star.png in Resources */ = {isa = PBXBuildFile; fileRef = BD55C3011CBDA24F00610137 /* 1star.png */; };
 		BD55C3041CBDA4D300610137 /* 1starEmpty.png in Resources */ = {isa = PBXBuildFile; fileRef = BD55C3031CBDA4D300610137 /* 1starEmpty.png */; };
 		BD55C3081CBF33A800610137 /* RegisterInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD55C3061CBF33A800610137 /* RegisterInfoViewController.m */; };
@@ -49,6 +54,16 @@
 		BD11A1AB1C9FDD3E00087582 /* RigisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RigisterViewController.xib; sourceTree = "<group>"; };
 		BD34B26D1CB608280070376B /* 未标题-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "未标题-2.png"; sourceTree = "<group>"; };
 		BD34B26F1CB751880070376B /* 澳门风云.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "澳门风云.jpg"; path = "MyMoment/澳门风云.jpg"; sourceTree = "<group>"; };
+		BD37693C1CCA771600392C63 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		BD37693D1CCA771600392C63 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		BD37693F1CCA98BB00392C63 /* MovieAllTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieAllTableViewController.h; sourceTree = "<group>"; };
+		BD3769401CCA98BB00392C63 /* MovieAllTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieAllTableViewController.m; sourceTree = "<group>"; };
+		BD3769421CCA98FA00392C63 /* MovieScoreRankingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieScoreRankingTableView.h; sourceTree = "<group>"; };
+		BD3769431CCA98FA00392C63 /* MovieScoreRankingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieScoreRankingTableView.m; sourceTree = "<group>"; };
+		BD3769451CCA992500392C63 /* MusicAllTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicAllTableViewController.h; sourceTree = "<group>"; };
+		BD3769461CCA992500392C63 /* MusicAllTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicAllTableViewController.m; sourceTree = "<group>"; };
+		BD3769481CCA994B00392C63 /* MusicScoreRankingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicScoreRankingTableView.h; sourceTree = "<group>"; };
+		BD3769491CCA994B00392C63 /* MusicScoreRankingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicScoreRankingTableView.m; sourceTree = "<group>"; };
 		BD55C3011CBDA24F00610137 /* 1star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1star.png; sourceTree = "<group>"; };
 		BD55C3031CBDA4D300610137 /* 1starEmpty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1starEmpty.png; sourceTree = "<group>"; };
 		BD55C3051CBF33A800610137 /* RegisterInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterInfoViewController.h; sourceTree = "<group>"; };
@@ -114,6 +129,14 @@
 				BD55C3101CC3C96700610137 /* MainMovieTableViewController.m */,
 				BD55C3121CC3C9A100610137 /* MainMusicTableViewController.h */,
 				BD55C3131CC3C9A100610137 /* MainMusicTableViewController.m */,
+				BD37693F1CCA98BB00392C63 /* MovieAllTableViewController.h */,
+				BD3769401CCA98BB00392C63 /* MovieAllTableViewController.m */,
+				BD3769421CCA98FA00392C63 /* MovieScoreRankingTableView.h */,
+				BD3769431CCA98FA00392C63 /* MovieScoreRankingTableView.m */,
+				BD3769451CCA992500392C63 /* MusicAllTableViewController.h */,
+				BD3769461CCA992500392C63 /* MusicAllTableViewController.m */,
+				BD3769481CCA994B00392C63 /* MusicScoreRankingTableView.h */,
+				BD3769491CCA994B00392C63 /* MusicScoreRankingTableView.m */,
 				BD11A1A61C9A5C0600087582 /* MainWindow.xib */,
 				BD11A1A91C9FDD3E00087582 /* RigisterViewController.h */,
 				BD11A1AA1C9FDD3E00087582 /* RigisterViewController.m */,
@@ -141,6 +164,8 @@
 				BD55C3161CC3E18E00610137 /* Movie.m */,
 				BD55C3181CC3E1A900610137 /* Music.h */,
 				BD55C3191CC3E1A900610137 /* Music.m */,
+				BD37693C1CCA771600392C63 /* Message.h */,
+				BD37693D1CCA771600392C63 /* Message.m */,
 				BD11A1911C9A59D400087582 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -232,9 +257,14 @@
 				BD11A1951C9A59D400087582 /* MyMoment.xcdatamodeld in Sources */,
 				BD11A1921C9A59D400087582 /* main.m in Sources */,
 				BD11A1AC1C9FDD3E00087582 /* RigisterViewController.m in Sources */,
+				BD3769411CCA98BB00392C63 /* MovieAllTableViewController.m in Sources */,
+				BD3769471CCA992500392C63 /* MusicAllTableViewController.m in Sources */,
+				BD37694A1CCA994B00392C63 /* MusicScoreRankingTableView.m in Sources */,
 				BD11A1A71C9A5C0600087582 /* MainWindowController.m in Sources */,
 				BD55C3081CBF33A800610137 /* RegisterInfoViewController.m in Sources */,
 				BD55C3111CC3C96700610137 /* MainMovieTableViewController.m in Sources */,
+				BD37693E1CCA771600392C63 /* Message.m in Sources */,
+				BD3769441CCA98FA00392C63 /* MovieScoreRankingTableView.m in Sources */,
 				BD11A18F1C9A59D400087582 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

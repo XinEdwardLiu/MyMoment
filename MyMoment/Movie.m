@@ -12,7 +12,8 @@
 
 
 
--(Movie*)initWithName:(NSString *)newName WithImage:(NSImage *)newImage WithTypes:(NSString *)newType WithAuthor:(NSString *)newAuthor WithIntroduction:(NSString *)newIntroduction WithCommentMutableArray:(NSMutableArray *)newCommentMutableArray WithScore:(float)newScore{
+-(Movie*)initWithName:(NSString *)newName WithImage:(NSImage *)newImage WithTypes:(NSString *)newType WithAuthor:(NSString *)newAuthor WithIntroduction:(NSString *)newIntroduction WithCommentMutableArray:(NSMutableArray *)newCommentMutableArray WithScore:(float)newScore
+{
     self=[super self];
     self.name=newName;
     self.image=newImage;
@@ -22,8 +23,6 @@
     self.commentMutableArray=newCommentMutableArray;
     self.score=newScore;
     return self;
-
-
 }
 
 @end
