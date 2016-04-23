@@ -30,19 +30,19 @@
     
     NSImage *scoreStarImage;
     
-     if (score==5.0) {
+     if (score>=4.5) {
             scoreStarImage=[NSImage imageNamed:@"5star"];
         }
-        else if(score==4.0){
+        else if(score>3.5&score<4.5){
             scoreStarImage=[NSImage imageNamed:@"4star"];
         }
-        else if(score==3.0){
+        else if(score>=2.5&score<3.5){
             scoreStarImage=[NSImage imageNamed:@"3star"];
         }
-        else if(score==2.0){
+        else if(score>=1.5&score<2.5){
             scoreStarImage=[NSImage imageNamed:@"2star"];
         }
-        else if(score==1.0){
+        else if(score<1.5){
             scoreStarImage=[NSImage imageNamed:@"1star"];
         }
         [self.resultStarImageView setImage:scoreStarImage];
