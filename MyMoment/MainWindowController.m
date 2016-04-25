@@ -66,6 +66,7 @@
     [self.movieDetailViewController.view setHidden:YES];
     [self.registerViewController.registerView setHidden:YES];
     [self.registerViewController.modifyView setHidden:YES];
+    [self.registerViewController.favoriteView setHidden:YES];
     
 }
 
@@ -85,6 +86,7 @@
     [self.musicView setHidden:YES];
     [self.registerViewController.registerView setHidden:YES];
     [self.registerViewController.modifyView setHidden:YES];
+      [self.registerViewController.favoriteView setHidden:YES];
 }
 
 -(IBAction)clickMusicBtn:(id)sender{
@@ -102,6 +104,7 @@ NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     [self.window.contentView addSubview:self.musicView];
     [self.registerViewController.registerView setHidden:YES];
     [self.registerViewController.modifyView setHidden:YES];
+      [self.registerViewController.favoriteView setHidden:YES];
 
 }
 
