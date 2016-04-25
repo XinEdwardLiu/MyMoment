@@ -10,14 +10,8 @@
 #import "AppDelegate.h"
 
 @interface RegisterInfoViewController ()
-@property IBOutlet NSTextField *accountTextField;
-@property IBOutlet NSTextField *ageTextField;
-@property IBOutlet NSMatrix *sexMatrix;
-@property IBOutlet NSTextField *emailTextField;
-@property IBOutlet NSTextField *phoneTextField;
-@property IBOutlet NSTextField *passwordTextField;
-@property IBOutlet NSTextField *selfIntroductionTextField;
-@property IBOutlet NSButton *submitBtn;
+
+
 @end
 
 @implementation RegisterInfoViewController
@@ -29,11 +23,26 @@
 
 
 -(IBAction)clickSubmitBtn:(id)sender{
-   
-    if ([self.accountTextField.stringValue isEqualToString:@""]) {
+    
+    
+    if ([self.accountTextField.stringValue isEqualToString:@""]&[self.passwordTextField.stringValue isEqualToString:@""]) {
+        [self.accountAttentionLabel setHidden:NO];
+        [self.passwordAttentionLabel setHidden:NO];
         return;
     }
-    else{
+    else if([self.accountTextField.stringValue isEqualToString:@""]&[self.passwordTextField.stringValue isNotEqualTo:@""]){
+        [self.accountAttentionLabel setHidden:NO];
+        [self.passwordAttentionLabel setHidden:YES];
+        return;
+    }
+    else if ([self.accountTextField.stringValue isNotEqualTo:@""]&[self.passwordTextField.stringValue isEqualTo:@""]){
+        [self.passwordAttentionLabel setHidden:NO];
+        [self.accountAttentionLabel setHidden:YES];
+        return;
+    }
+    else if([self.accountTextField.stringValue isNotEqualTo:@""]&[self.passwordTextField.stringValue isNotEqualTo:@""]){
+        
+        if ([AppDelegate getStaticAccountState]==NO){
         
         AppDelegate *appdelegate=[NSApp delegate];
         appdelegate.mainWindowController.registerViewController.nameLabel.stringValue=self.accountTextField.stringValue;
@@ -47,8 +56,32 @@
         [appdelegate.mainWindowController.registerViewController.registerBtn setHidden:YES];
         BOOL accountState=YES;
         [AppDelegate setStaticAcccountState:accountState];
-    
+        
+        User *temperUser=[[User alloc]initWithName:self.accountTextField.stringValue WithAge:self.ageTextField.stringValue WithSex:self.sexMatrix.selectedCell.stringValue WithEmailAdress:self.emailTextField.stringValue WithPhoneNumber:self.phoneTextField.stringValue WithPassword:self.passwordTextField.stringValue WithIntroduction:self.selfIntroductionTextField.stringValue];
+        NSMutableArray *temperUserMutableArray=[AppDelegate getStaticUserMutableArray];
+        [temperUserMutableArray addObject:temperUser];
+        [AppDelegate setstaticUserMutableArray:temperUserMutableArray];
+        [AppDelegate setStaticUser:temperUser];
+        [AppDelegate setStaticUserRow:([temperUserMutableArray count]-1)];
+        }
+        
+        else if ([AppDelegate getStaticAccountState]==YES){
+            User *temperUser=[[User alloc]initWithName:self.accountTextField.stringValue WithAge:self.ageTextField.stringValue WithSex:self.sexMatrix.selectedCell.stringValue WithEmailAdress:self.emailTextField.stringValue WithPhoneNumber:self.phoneTextField.stringValue WithPassword:self.passwordTextField.stringValue WithIntroduction:self.selfIntroductionTextField.stringValue];
+            [AppDelegate setStaticUser:temperUser];
+            NSMutableArray *temperUserMutableArray=[AppDelegate getStaticUserMutableArray];
+            [temperUserMutableArray setObject:temperUser atIndexedSubscript:[AppDelegate getStaticUserRow]];
+            [AppDelegate setstaticUserMutableArray:temperUserMutableArray];
+            [self.view setHidden:YES];
+            AppDelegate *appdelegate=[NSApp delegate];
+            appdelegate.mainWindowController.registerViewController.nameLabel.stringValue=temperUser.userName;
+            [appdelegate.mainWindowController.mainView setHidden:NO];
+          
+        
+        }
+        
     }
+    
+    
     
  
 }

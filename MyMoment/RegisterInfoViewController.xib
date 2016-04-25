@@ -7,13 +7,16 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RegisterInfoViewController">
             <connections>
+                <outlet property="accountAttentionLabel" destination="fhb-vh-hgT" id="nNo-jD-t4c"/>
                 <outlet property="accountTextField" destination="btr-Lp-wJB" id="0kx-4n-T5l"/>
                 <outlet property="ageTextField" destination="TkT-6S-enI" id="AMN-cr-Vay"/>
                 <outlet property="emailTextField" destination="JRa-jq-r3X" id="rrX-Db-cYZ"/>
+                <outlet property="passwordAttentionLabel" destination="ikc-GN-VTW" id="dvn-zq-aTK"/>
                 <outlet property="passwordTextField" destination="woT-px-x0Y" id="hd5-Pr-6vS"/>
                 <outlet property="phoneTextField" destination="dkJ-cL-Flu" id="LNy-oB-KaB"/>
                 <outlet property="selfIntroductionTextField" destination="KBt-pl-08H" id="WEu-VU-Yt0"/>
                 <outlet property="sexMatrix" destination="jgS-zd-eid" id="XG9-cc-lil"/>
+                <outlet property="submitBtn" destination="XwU-vk-0xT" id="t54-Vl-fJZ"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -24,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="btr-Lp-wJB">
-                    <rect key="frame" x="374" y="385" width="96" height="22"/>
+                    <rect key="frame" x="344" y="385" width="158" height="22"/>
                     <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="Name" drawsBackground="YES" id="4hA-bN-JVg">
                         <font key="font" metaFont="system"/>
@@ -33,7 +36,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TkT-6S-enI">
-                    <rect key="frame" x="374" y="344" width="96" height="22"/>
+                    <rect key="frame" x="344" y="344" width="158" height="22"/>
                     <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="Age" drawsBackground="YES" id="1Wm-B1-CyL">
                         <font key="font" metaFont="system"/>
@@ -42,7 +45,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JRa-jq-r3X">
-                    <rect key="frame" x="374" y="265" width="96" height="22"/>
+                    <rect key="frame" x="344" y="265" width="158" height="22"/>
                     <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="Email" drawsBackground="YES" id="VqO-tz-hPg">
                         <font key="font" metaFont="system"/>
@@ -51,7 +54,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dkJ-cL-Flu">
-                    <rect key="frame" x="374" y="223" width="96" height="22"/>
+                    <rect key="frame" x="344" y="223" width="158" height="22"/>
                     <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="Phone" drawsBackground="YES" id="sFL-nS-ghV">
                         <font key="font" metaFont="system"/>
@@ -60,7 +63,7 @@
                     </textFieldCell>
                 </textField>
                 <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autosizesCells="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgS-zd-eid">
-                    <rect key="frame" x="374" y="306" width="97" height="18"/>
+                    <rect key="frame" x="375" y="306" width="97" height="18"/>
                     <animations/>
                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     <size key="cellSize" width="35" height="18"/>
@@ -71,13 +74,13 @@
                     </buttonCell>
                     <cells>
                         <column>
-                            <buttonCell type="radio" title="男" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="cEy-xS-tmT">
+                            <buttonCell type="radio" title="男" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="1" inset="2" id="cEy-xS-tmT">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" size="13" name=".PingFangSC-Regular"/>
                             </buttonCell>
                         </column>
                         <column>
-                            <buttonCell type="radio" title="女" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="dMW-eI-lkG">
+                            <buttonCell type="radio" title="女" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="2" inset="2" id="dMW-eI-lkG">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" size="13" name=".PingFangSC-Regular"/>
                             </buttonCell>
@@ -85,7 +88,7 @@
                     </cells>
                 </matrix>
                 <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="woT-px-x0Y">
-                    <rect key="frame" x="374" y="180" width="96" height="22"/>
+                    <rect key="frame" x="344" y="180" width="158" height="22"/>
                     <animations/>
                     <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" placeholderString="Password" drawsBackground="YES" usesSingleLineMode="YES" id="rc0-uE-Yxz">
                         <font key="font" metaFont="system"/>
@@ -108,7 +111,7 @@
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XwU-vk-0xT">
                     <rect key="frame" x="706" y="412" width="71" height="21"/>
                     <animations/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="submitScore" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="tWJ-aZ-Qfm">
+                    <buttonCell key="cell" type="square" title="提交" bezelStyle="shadowlessSquare" image="submitScore" imagePosition="left" alignment="center" imageScaling="proportionallyDown" inset="2" id="tWJ-aZ-Qfm">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -116,6 +119,24 @@
                         <action selector="clickSubmitBtn:" target="-2" id="Wao-U1-v77"/>
                     </connections>
                 </button>
+                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fhb-vh-hgT">
+                    <rect key="frame" x="288" y="388" width="50" height="17"/>
+                    <animations/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="请输入：" id="7WH-ap-J64">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ikc-GN-VTW">
+                    <rect key="frame" x="288" y="184" width="50" height="17"/>
+                    <animations/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="请输入：" id="2yJ-PB-oHW">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <animations/>
             <point key="canvasLocation" x="452" y="355"/>

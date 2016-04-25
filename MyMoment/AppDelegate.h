@@ -10,6 +10,7 @@
 #import "MainWindowController.h"
 #import "Movie.h"
 #import "Music.h"
+#import "User.h"
 
 
 static BOOL staticAccountState;
@@ -19,6 +20,9 @@ static NSMutableArray *staticMusicMutableArray;
 static NSMutableArray *staticMovieScoreRankingMutableArray;
 static Movie *staticMovie;
 static Movie *staticScoreRankingMovie;
+static User *staticUser;
+static NSInteger staticUserRow;
+static NSMutableArray *staticUserMutableArray;
 
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
@@ -48,6 +52,16 @@ static Movie *staticScoreRankingMovie;
 
 +(Movie *)getStaticScoreRankingMovie;
 +(Movie *)setStaticScoreRankingMovie:(Movie *)newMovie;
+
++(User *)getStaticUser;
++(User *)setStaticUser:(User *)newUser;
+
++(NSInteger)getStaticUserRow;
++(NSInteger)setStaticUserRow:(NSInteger)row;
+
++(NSMutableArray *)getStaticUserMutableArray;
++(NSMutableArray *)setstaticUserMutableArray:(NSMutableArray *)newUserMutableArray;
+
 
 @end
 

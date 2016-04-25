@@ -23,6 +23,12 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    User *user1=[[User alloc]initWithName:@"Edward" WithAge:@"31" WithSex:@"Male" WithEmailAdress:@"xinedwardliu@gmail.com" WithPhoneNumber:@"18676666592" WithPassword:@"1234" WithIntroduction:@"self Introduction"];
+    User *user2=[[User alloc]initWithName:@"Coco" WithAge:@"31" WithSex:@"Female" WithEmailAdress:@"cocoxu@gmail.com" WithPhoneNumber:@"18688821692" WithPassword:@"1234" WithIntroduction:@"self Introduction"];
+
+    NSMutableArray *userMutableArray=[[NSMutableArray alloc]initWithObjects:user1,user2, nil];
+    [AppDelegate setstaticUserMutableArray:userMutableArray];
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateStyle = NSDateFormatterMediumStyle;
     dateFormatter.timeStyle = NSDateFormatterShortStyle;
@@ -155,6 +161,32 @@
 +(Movie *)setStaticScoreRankingMovie:(Movie *)newMovie{
     staticScoreRankingMovie=newMovie;
     return staticScoreRankingMovie;
+}
+
++(User *)getStaticUser{
+    return  staticUser;
+}
+
++(User *)setStaticUser:(User *)newUser{
+    staticUser=newUser;
+    return staticUser;
+}
+
++(NSInteger)getStaticUserRow{
+    return staticUserRow;
+}
++(NSInteger)setStaticUserRow:(NSInteger)row{
+    staticUserRow=row;
+    return staticUserRow;
+}
+
++(NSMutableArray *)getStaticUserMutableArray{
+    return staticUserMutableArray;
+}
++(NSMutableArray *)setstaticUserMutableArray:(NSMutableArray *)newUserMutableArray{
+    staticUserMutableArray=newUserMutableArray;
+    return staticUserMutableArray;
+
 }
 
 #pragma mark - Core Data stack

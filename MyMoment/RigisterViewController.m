@@ -10,7 +10,7 @@
 #import "RegisterInfoViewController.h"
 #import "AppDelegate.h"
 @interface RigisterViewController ()
-@property (strong) IBOutlet RegisterInfoViewController *registerInfoViewController;
+
 @end
 
 @implementation RigisterViewController
@@ -23,15 +23,17 @@
     self.view.layer.backgroundColor=[NSColor grayColor].CGColor;
     [self.favoriteListBtn setHidden:YES];
     [self.historyListBtn setHidden:YES];
+   // self.registerInfoViewController=[[RegisterInfoViewController alloc]initWithNibName:@"RegisterInfoViewController" bundle:nil];
+
 }
 
 
 -(IBAction)clickRegisterBtn:(id)sender{
 
-    
     self.registerInfoViewController=[[RegisterInfoViewController alloc]initWithNibName:@"RegisterInfoViewController" bundle:nil];
+    self.registerView=self.registerInfoViewController.view;
     NSRect rigsterFrame=NSMakeRect(179, 47.5, 846, 468);
-     [self.registerInfoViewController.view setFrame:rigsterFrame];
+     [self.registerView setFrame:rigsterFrame];
    // [self.view.superview addSubview:self.registerInfoViewController.view];
     
     AppDelegate *appdelegate=[NSApp delegate];
@@ -40,34 +42,107 @@
     [appdelegate.mainWindowController.musicView setHidden:YES];
     [appdelegate.mainWindowController.movieView setHidden:YES];
     [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
-[appdelegate.mainWindowController.window.contentView addSubview:self.registerInfoViewController.view];
-
+[appdelegate.mainWindowController.window.contentView addSubview:self.registerView];
+    
+    
 }
 
 -(IBAction)clickAboardBtn:(id)sender{
 
-    if ([self.accountTextField.stringValue isEqualToString:@"Edward"]&[self.passwordTextField.stringValue isEqualToString:@"1234"]) {
-        [self.accountTextField setHidden:YES];
-        [self.passwordTextField setHidden:YES];
-        [self.aboardBtn setHidden:YES];
-        [self.registerBtn setHidden:YES];
-        self.nameLabel.stringValue=@"Edward";
-        [self.favoriteListBtn setHidden:NO];
-        [self.historyListBtn setHidden:NO];
-        [self.attentionLabel setHidden:YES];
-        BOOL accountState=YES;
-        [AppDelegate setStaticAcccountState:accountState];
+    NSMutableArray *uerMutableArray=[AppDelegate getStaticUserMutableArray];
+    
+    for (NSInteger y=0; y<[uerMutableArray count]; y++) {
+        
+        User *temperUser=[uerMutableArray objectAtIndex:y];
+        
+        if ([self.accountTextField.stringValue isEqualTo:temperUser.userName] & [self.passwordTextField.stringValue isEqualToString:temperUser.userPassword]) {
+            [self.accountTextField setHidden:YES];
+            [self.passwordTextField setHidden:YES];
+            [self.aboardBtn setHidden:YES];
+            [self.registerBtn setHidden:YES];
+            self.nameLabel.stringValue=temperUser.userName;
+            [self.favoriteListBtn setHidden:NO];
+            [self.historyListBtn setHidden:NO];
+            [self.attentionLabel setHidden:YES];
+            BOOL accountState=YES;
+            [AppDelegate setStaticAcccountState:accountState];
+            [AppDelegate setStaticUser:temperUser];
+            [AppDelegate setStaticUserRow:y];
+        }
+        else{
+            self.attentionLabel.stringValue=@"Invalid Input!";
     }
-
-    else{
-        self.attentionLabel.stringValue=@"Invalid Input!";
-        return;
-    
     
     }
-    
-    
 
 }
+
+-(IBAction)clickAccountImageBtn:(id)sender{
+    
+    if ([AppDelegate getStaticAccountState]==NO) {
+        return;
+    }
+    else if([AppDelegate getStaticAccountState]==YES){
+    self.registerInfoViewController=[[RegisterInfoViewController alloc]initWithNibName:@"RegisterInfoViewController" bundle:nil];
+    self.modifyView=self.registerInfoViewController.view;
+    NSRect rigsterFrame=NSMakeRect(179, 47.5, 846, 468);
+    [self.modifyView setFrame:rigsterFrame];
+        self.registerInfoViewController.accountTextField.stringValue=[AppDelegate getStaticUser].userName;
+        self.registerInfoViewController.ageTextField.stringValue=[AppDelegate getStaticUser].userAge;
+        if ([[AppDelegate getStaticUser].userSex isEqualTo:@"男"]) {
+            [self.registerInfoViewController.sexMatrix selectCellWithTag:1];
+        }
+        else{
+            [self.registerInfoViewController.sexMatrix selectCellWithTag:2];}
+        self.registerInfoViewController.emailTextField.stringValue=[AppDelegate getStaticUser].userEmailAdress;
+        self.registerInfoViewController.phoneTextField.stringValue=[AppDelegate getStaticUser].userPhoneNumber;
+        self.registerInfoViewController.passwordTextField.stringValue=[AppDelegate getStaticUser].userPassword;
+        self.registerInfoViewController.selfIntroductionTextField.stringValue=[AppDelegate getStaticUser].userIntroduction;
+    
+    AppDelegate *appdelegate=[NSApp delegate];
+    
+    [appdelegate.mainWindowController.mainView setHidden:YES];
+    [appdelegate.mainWindowController.musicView setHidden:YES];
+    [appdelegate.mainWindowController.movieView setHidden:YES];
+    [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
+    [appdelegate.mainWindowController.window.contentView addSubview:self.modifyView];
+       
+    }
+}
+
+
+-(IBAction)clickFavoriteBtn:(id)sender{
+
+    self.favoriteListViewController=[[FavoriteListViewController alloc]initWithNibName:@"FavoriteListViewController" bundle:nil];
+    self.favoriteView=self.favoriteListViewController.view;
+    NSRect favoriteFrame=NSMakeRect(179, 47.5, 846, 468);
+    [self.favoriteView setFrame:favoriteFrame];
+    
+    AppDelegate *appdelegate=[NSApp delegate];
+    
+    [appdelegate.mainWindowController.mainView setHidden:YES];
+    [appdelegate.mainWindowController.musicView setHidden:YES];
+    [appdelegate.mainWindowController.movieView setHidden:YES];
+    [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
+    [appdelegate.mainWindowController.window.contentView addSubview:self.favoriteView];
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

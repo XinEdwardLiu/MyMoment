@@ -31,6 +31,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="clickAccountImageBtn:" target="-2" id="hle-ma-geP"/>
+                    </connections>
                 </button>
                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tzf-x2-Nqd">
                     <rect key="frame" x="39" y="188" width="96" height="22"/>
@@ -68,6 +71,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="clickFavoriteBtn:" target="-2" id="jkr-lV-wRE"/>
+                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Km-yx-DcV">
                     <rect key="frame" x="48" y="156" width="81" height="32"/>

@@ -56,15 +56,25 @@
     [self.movieView setHidden:YES];
     [self.mainView setHidden:NO];
     [self.musicView setHidden:YES];
+    
     [self.window.contentView addSubview:self.mainView];
+    
     [self.mainBtn setImage:[NSImage imageNamed:@"Main_Yellow"]];
     [self.movieBtn setImage:[NSImage imageNamed:@"Movie"]];
     [self.musicBtn setImage:[NSImage imageNamed:@"Music"]];
+    
     [self.movieDetailViewController.view setHidden:YES];
+    [self.registerViewController.registerView setHidden:YES];
+    [self.registerViewController.modifyView setHidden:YES];
     
 }
 
 -(IBAction)clickMovieBtn:(id)sender{
+    
+    [self.movieBtn setImage:[NSImage imageNamed:@"Movie_Yellow"]];
+    [self.mainBtn setImage:[NSImage imageNamed:@"Main"]];
+    [self.musicBtn setImage:[NSImage imageNamed:@"Music"]];
+    
     [self.movieScoreRankingTableView reloadData];
     NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     [self.movieView setFrame:showFrame];
@@ -73,9 +83,16 @@
     [self.window.contentView addSubview:self.movieView];
     [self.movieDetailView setHidden:YES];
     [self.musicView setHidden:YES];
+    [self.registerViewController.registerView setHidden:YES];
+    [self.registerViewController.modifyView setHidden:YES];
 }
 
 -(IBAction)clickMusicBtn:(id)sender{
+    
+    [self.musicBtn setImage:[NSImage imageNamed:@"Music_Yellow"]];
+    [self.mainBtn setImage:[NSImage imageNamed:@"Main"]];
+    [self.movieBtn setImage:[NSImage imageNamed:@"Movie"]];
+    
 NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     [self.musicView setFrame:showFrame];
     [self.mainView setHidden:YES];
@@ -83,7 +100,8 @@ NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     [self.movieDetailView setHidden:YES];
     [self.musicView setHidden:NO];
     [self.window.contentView addSubview:self.musicView];
-
+    [self.registerViewController.registerView setHidden:YES];
+    [self.registerViewController.modifyView setHidden:YES];
 
 }
 
