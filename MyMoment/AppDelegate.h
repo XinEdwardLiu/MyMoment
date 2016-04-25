@@ -23,6 +23,7 @@ static Movie *staticScoreRankingMovie;
 static User *staticUser;
 static NSInteger staticUserRow;
 static NSMutableArray *staticUserMutableArray;
+static NSMutableArray *staticFavoriteListMutableArray;
 
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
@@ -61,6 +62,9 @@ static NSMutableArray *staticUserMutableArray;
 
 +(NSMutableArray *)getStaticUserMutableArray;
 +(NSMutableArray *)setstaticUserMutableArray:(NSMutableArray *)newUserMutableArray;
+
++(NSMutableArray *)getStaticFavoriteListMutableArray;
++(NSMutableArray *)setstaticFavoriteListMutableArray:(NSMutableArray *)newFavoriteMutableArray;
 
 
 @end

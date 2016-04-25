@@ -12,7 +12,7 @@
 
 
 
--(Movie*)initWithName:(NSString *)newName WithImage:(NSImage *)newImage WithTypes:(NSString *)newType WithAuthor:(NSString *)newAuthor WithIntroduction:(NSString *)newIntroduction WithCommentMutableArray:(NSMutableArray *)newCommentMutableArray WithScore:(float)newScore
+-(Movie*)initWithName:(NSString *)newName WithImage:(NSImage *)newImage WithTypes:(NSString *)newType WithAuthor:(NSString *)newAuthor WithIntroduction:(NSString *)newIntroduction WithCommentMutableArray:(NSMutableArray *)newCommentMutableArray WithScore:(float)newScore WithIsFavorite:(BOOL)favorite;
 {
     self=[super self];
     self.name=newName;
@@ -22,6 +22,7 @@
     self.introduction=newIntroduction;
     self.commentMutableArray=newCommentMutableArray;
     self.score=newScore;
+    self.isFavorite=favorite;
     return self;
 }
 

@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Message.h"
 @interface MovieDetailViewController : NSViewController<NSTableViewDelegate,NSTableViewDataSource>
-{ int score;
+{ float score;
 }
 
 @property IBOutlet NSButton *oneScoreBtn;
@@ -34,4 +34,6 @@
 @property IBOutlet NSTextField *resultScoreLabel;
 
 @property Message *temperMessage;
+
+@property IBOutlet NSButton *addToFavoriteBtn;
 @end

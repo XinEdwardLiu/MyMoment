@@ -8,6 +8,7 @@
 
 #import "MovieDetailViewController.h"
 #import "AppDelegate.h"
+#import "FavoriteMovie.h"
 @interface MovieDetailViewController ()
 
 
@@ -26,14 +27,15 @@
     self.authorLabel.stringValue=[selectedMovie valueForKey:@"author"];
     self.introductionLabel.stringValue=[selectedMovie valueForKey:@"introduction"];
     self.resultScoreLabel.stringValue=[selectedMovie valueForKey:@"score"];
-    float score=[[selectedMovie valueForKey:@"score"] floatValue];
+    
+     score=[[selectedMovie valueForKey:@"score"] floatValue];
     
     NSImage *scoreStarImage;
     
      if (score>=4.5) {
             scoreStarImage=[NSImage imageNamed:@"5star"];
         }
-        else if(score>3.5&score<4.5){
+        else if(score>=3.5&score<4.5){
             scoreStarImage=[NSImage imageNamed:@"4star"];
         }
         else if(score>=2.5&score<3.5){
@@ -49,6 +51,14 @@
     
     self.messageMutableArray=[selectedMovie valueForKey:@"commentMutableArray"];
     [AppDelegate setStaticCommentMutableArray:self.messageMutableArray];
+    
+    if ([AppDelegate getStaticAccountState]==NO) {
+        [self.addToFavoriteBtn setHidden:YES];
+    }
+    else{
+        
+        [self.addToFavoriteBtn setHidden:NO];
+    }
     
 }
 
@@ -170,5 +180,34 @@
     }
 }
 
+
+-(IBAction)clickAddToFavoriteBtn:(id)sender{
+    Movie *tempMovie=[AppDelegate getStaticMovie];
+    NSMutableArray *temperFavoriteListMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticFavoriteListMutableArray]];
+    if (tempMovie.isFavorite==NO) {
+        tempMovie.isFavorite=YES;
+        FavoriteMovie *tempFavoriteMovie=[[FavoriteMovie alloc]initWithName:tempMovie.name WithImage:tempMovie.image WithTypes:tempMovie.types WithAuthor:tempMovie.author WithIntroduction:tempMovie.introduction WithCommentMutableArray:tempMovie.commentMutableArray WithScore:tempMovie.score WithIsFavorite:tempMovie.isFavorite WithUserName:[AppDelegate getStaticUser].userName];
+        [temperFavoriteListMutableArray addObject:tempFavoriteMovie];
+        [AppDelegate setstaticFavoriteListMutableArray:temperFavoriteListMutableArray];
+        [self.addToFavoriteBtn setImage:[NSImage imageNamed:@"Heart_Full"]];
+        [self.addToFavoriteBtn setTitle:@""];
+        [AppDelegate setStaticMovie:tempMovie];
+        
+    }
+    
+   else if(tempMovie.isFavorite==YES)
+   {   [self.addToFavoriteBtn setImage:[NSImage imageNamed:@"Heart_Full"]];
+       [self.addToFavoriteBtn setTitle:@"已收"];
+       return;
+   }
+    
+    
+    
+    AppDelegate *appdelegate=[NSApp delegate];
+    [appdelegate.mainWindowController.registerViewController.favoriteListViewController.favoriteListTableView reloadData];
+    NSLog(@"%@",[AppDelegate getStaticFavoriteListMutableArray]);
+    NSLog(@"%@",[AppDelegate getStaticMovie].name);
+    
+}
 
 @end

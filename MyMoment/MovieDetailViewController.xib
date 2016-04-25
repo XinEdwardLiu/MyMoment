@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MovieDetailViewController">
             <connections>
+                <outlet property="addToFavoriteBtn" destination="YZT-NT-2ZP" id="cb4-Xm-2zC"/>
                 <outlet property="authorLabel" destination="t5z-1U-8dh" id="zKG-dz-u0l"/>
                 <outlet property="fiveScoreBtn" destination="LdH-za-aFh" id="PKi-9L-V5B"/>
                 <outlet property="fourScoreBtn" destination="Tms-eE-WCr" id="mf0-nl-KaM"/>
@@ -57,6 +58,17 @@
                         <animations/>
                     </scroller>
                 </scrollView>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YZT-NT-2ZP">
+                    <rect key="frame" x="764" y="371" width="35" height="48"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" title="收藏" bezelStyle="shadowlessSquare" image="Heart" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="JkG-57-OaJ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickAddToFavoriteBtn:" target="-2" id="AMi-Bv-lFQ"/>
+                    </connections>
+                </button>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PLH-Nr-5cP">
                     <rect key="frame" x="20" y="229" width="332" height="219"/>
                     <animations/>
@@ -90,7 +102,7 @@
                     </textFieldCell>
                 </textField>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZKI-it-wIA">
-                    <rect key="frame" x="629" y="386" width="138" height="33"/>
+                    <rect key="frame" x="590" y="386" width="138" height="33"/>
                     <animations/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="proportionallyDown" image="5star" id="qzy-Zr-izK"/>
                 </imageView>
@@ -152,7 +164,7 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                     </tableColumn>
-                                    <tableColumn identifier="time" width="164" minWidth="10" maxWidth="3.4028234663852886e+38" id="8Na-ks-Q5a">
+                                    <tableColumn identifier="time" width="163" minWidth="10" maxWidth="3.4028234663852886e+38" id="8Na-ks-Q5a">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -177,12 +189,12 @@
                     </clipView>
                     <animations/>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="gk7-Om-OMQ">
-                        <rect key="frame" x="0.0" y="78" width="625" height="15"/>
+                        <rect key="frame" x="-8" y="-15" width="0.0" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                     </scroller>
                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="1mj-R9-SaR">
-                        <rect key="frame" x="-15" y="0.0" width="15" height="0.0"/>
+                        <rect key="frame" x="-15" y="-8" width="15" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                     </scroller>
@@ -252,7 +264,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mtm-Da-Wul">
-                    <rect key="frame" x="671" y="359" width="54" height="20"/>
+                    <rect key="frame" x="636" y="359" width="54" height="20"/>
                     <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="5.0" id="tgE-bo-K92">
                         <font key="font" size="16" name=".AppleSystemUIFontBlack"/>
@@ -291,6 +303,7 @@
         <image name="1star" width="30.719999313354492" height="29.280000686645508"/>
         <image name="1starEmpty" width="30.719999313354492" height="29.280000686645508"/>
         <image name="5star" width="167.52000427246094" height="29.280000686645508"/>
+        <image name="Heart" width="128" height="128"/>
         <image name="message" width="128" height="128"/>
         <image name="澳门风云" width="500" height="332"/>
     </resources>

@@ -106,6 +106,7 @@
     [appdelegate.mainWindowController.movieView setHidden:YES];
     [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
     [appdelegate.mainWindowController.window.contentView addSubview:self.modifyView];
+        [self.favoriteView setHidden:YES];
        
     }
 }
