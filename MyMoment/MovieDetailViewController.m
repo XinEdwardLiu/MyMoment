@@ -185,24 +185,61 @@
     Movie *tempMovie=[AppDelegate getStaticMovie];
     NSMutableArray *temperFavoriteListMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticFavoriteListMutableArray]];
     
-    if (tempMovie.isFavorite==NO) {
-        tempMovie.isFavorite=YES;
+    NSString *tempMovieName=tempMovie.name;
+    
+    if ([temperFavoriteListMutableArray count]==0)
+    {
         FavoriteMovie *tempFavoriteMovie=[[FavoriteMovie alloc]initWithName:tempMovie.name WithImage:tempMovie.image WithTypes:tempMovie.types WithAuthor:tempMovie.author WithIntroduction:tempMovie.introduction WithCommentMutableArray:tempMovie.commentMutableArray WithScore:tempMovie.score WithIsFavorite:tempMovie.isFavorite WithUserName:[AppDelegate getStaticUser].userName];
         [temperFavoriteListMutableArray addObject:tempFavoriteMovie];
         [AppDelegate setstaticFavoriteListMutableArray:temperFavoriteListMutableArray];
         [self.addToFavoriteBtn setImage:[NSImage imageNamed:@"Heart_Full"]];
         [self.addToFavoriteBtn setTitle:@""];
-        [AppDelegate setStaticMovie:tempMovie];
         
     }
+    else
+    {
+        NSMutableArray *listNameMutableArray=[[NSMutableArray alloc]init];
+        for (NSInteger i=0; i<[temperFavoriteListMutableArray count]; i++)
+        {
+        NSString *tempName=[[temperFavoriteListMutableArray objectAtIndex:i] valueForKey:@"name"];
+       
+            [listNameMutableArray addObject:tempName];
+        }
+        
+        if ([listNameMutableArray containsObject:tempMovieName ])
+        
+            return;
+        
+        else
+        {
+        
+            FavoriteMovie *tempFavoriteMovie=[[FavoriteMovie alloc]initWithName:tempMovie.name WithImage:tempMovie.image WithTypes:tempMovie.types WithAuthor:tempMovie.author WithIntroduction:tempMovie.introduction WithCommentMutableArray:tempMovie.commentMutableArray WithScore:tempMovie.score WithIsFavorite:tempMovie.isFavorite WithUserName:[AppDelegate getStaticUser].userName];
+            [temperFavoriteListMutableArray addObject:tempFavoriteMovie];
+            [AppDelegate setstaticFavoriteListMutableArray:temperFavoriteListMutableArray];
+            [self.addToFavoriteBtn setImage:[NSImage imageNamed:@"Heart_Full"]];
+            [self.addToFavoriteBtn setTitle:@""];
+            
+        }
+        
+    }
+//    if (tempMovie.isFavorite==NO) {
+//        tempMovie.isFavorite=YES;
+//        FavoriteMovie *tempFavoriteMovie=[[FavoriteMovie alloc]initWithName:tempMovie.name WithImage:tempMovie.image WithTypes:tempMovie.types WithAuthor:tempMovie.author WithIntroduction:tempMovie.introduction WithCommentMutableArray:tempMovie.commentMutableArray WithScore:tempMovie.score WithIsFavorite:tempMovie.isFavorite WithUserName:[AppDelegate getStaticUser].userName];
+//        [temperFavoriteListMutableArray addObject:tempFavoriteMovie];
+//        [AppDelegate setstaticFavoriteListMutableArray:temperFavoriteListMutableArray];
+//        [self.addToFavoriteBtn setImage:[NSImage imageNamed:@"Heart_Full"]];
+//        [self.addToFavoriteBtn setTitle:@""];
+//        [AppDelegate setStaticMovie:tempMovie];
+        
+//    }
     
-   else if(tempMovie.isFavorite==YES)
-   {   [self.addToFavoriteBtn setImage:[NSImage imageNamed:@"Heart_Full"]];
-       [self.addToFavoriteBtn setTitle:@"已收"];
-       return;
-   }
+//   else if(tempMovie.isFavorite==YES)
+//   {   [self.addToFavoriteBtn setImage:[NSImage imageNamed:@"Heart_Full"]];
+//       [self.addToFavoriteBtn setTitle:@"已收"];
+//       return;
+//   }
     
-    
+    [AppDelegate setstaticFavoriteListMutableArray:temperFavoriteListMutableArray];
     
     AppDelegate *appdelegate=[NSApp delegate];
     [appdelegate.mainWindowController.registerViewController.favoriteListViewController.favoriteListTableView reloadData];
