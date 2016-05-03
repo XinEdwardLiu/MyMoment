@@ -22,6 +22,7 @@
 @property NSView *favoriteView;
 
 @property IBOutlet NSTextField *attentionLabel;
+@property IBOutlet NSButton *quitBtn;
 
 @property (strong) IBOutlet RegisterInfoViewController *registerInfoViewController;
 @property (strong) IBOutlet FavoriteListViewController *favoriteListViewController;

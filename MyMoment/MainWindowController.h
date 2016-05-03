@@ -10,7 +10,8 @@
 #import "MovieDetailViewController.h"
 #import "RigisterViewController.h"
 
-@interface MainWindowController : NSWindowController
+
+@interface MainWindowController : NSWindowController<NSWindowDelegate>
 @property IBOutlet NSTabView *mainTab;
 @property NSView *mainView;
 @property NSView *movieView;

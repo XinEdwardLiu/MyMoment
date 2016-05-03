@@ -7,15 +7,15 @@
 //
 
 #import "AppDelegate.h"
-#import "MainWindowController.h"
-#import "Movie.h"
-#import "Music.h"
-#import "Message.h"
+
+
+
 
 @interface AppDelegate ()
 //@property (strong) IBOutlet MainWindowController* mainWindowController;
 @property (weak) IBOutlet NSWindow *window;
 - (IBAction)saveAction:(id)sender;
+
 
 @end
 
@@ -23,11 +23,32 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-    User *user1=[[User alloc]initWithName:@"Edward" WithAge:@"31" WithSex:@"Male" WithEmailAdress:@"xinedwardliu@gmail.com" WithPhoneNumber:@"18676666592" WithPassword:@"1234" WithIntroduction:@"self Introduction"];
-    User *user2=[[User alloc]initWithName:@"Coco" WithAge:@"31" WithSex:@"Female" WithEmailAdress:@"cocoxu@gmail.com" WithPhoneNumber:@"18688821692" WithPassword:@"1234" WithIntroduction:@"self Introduction"];
+  //  UserCoreData *temperUserCoreData=[[UserCoreData alloc]initWithEntity:[NSEntityDescription entityForName:@"UserCoreData" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
+    //
+    NSError *error=nil;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"UserCoreData"];
+    
+  //  UserCoreData *userCoreData=[self.managedObjectContext executeFetchRequest:request error:&error];
+    
+ //  NSMutableArray *arrayUserCore = [NSKeyedUnarchiver unarchiveObjectWithData:temperUserCoreData.userArrayData];
+     id results = [self.managedObjectContext executeFetchRequest:request error:&error];
+      if (!results) {
+            NSLog(@"Error fetching Employee objects: %@\n%@", [error localizedDescription], [error userInfo]);
+            abort();
+        }
+    UserCoreData *tempUserCoreDate=[results objectAtIndex:0];
+    NSMutableArray *tempArray=[NSKeyedUnarchiver unarchiveObjectWithData:tempUserCoreDate.userArrayData];
+    [AppDelegate setstaticUserMutableArray:tempArray];
+    NSLog(@"%@",[AppDelegate getStaticUserMutableArray]);
+        NSLog(@"%@",[[tempArray objectAtIndex:0] valueForKey:@"userPassword"]);
+   
+//
+ //   User *user1=[[User alloc]initWithName:@"Edward" WithAge:@"31" WithSex:@"Male" WithEmailAdress:@"xinedwardliu@gmail.com" WithPhoneNumber:@"18676666592" WithPassword:@"1234" WithIntroduction:@"self Introduction"];
+ //   User *user2=[[User alloc]initWithName:@"Coco" WithAge:@"31" WithSex:@"Female" WithEmailAdress:@"cocoxu@gmail.com" WithPhoneNumber:@"18688821692" WithPassword:@"1234" WithIntroduction:@"self Introduction"];
 
-    NSMutableArray *userMutableArray=[[NSMutableArray alloc]initWithObjects:user1,user2, nil];
-    [AppDelegate setstaticUserMutableArray:userMutableArray];
+   // NSMutableArray *userMutableArray=[[NSMutableArray alloc]initWithObjects:user1,user2, nil];
+   // [AppDelegate setstaticUserMutableArray:userMutableArray];
+    
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateStyle = NSDateFormatterMediumStyle;
@@ -100,7 +121,17 @@
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
+   
+    NSMutableArray *tempUserMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticUserMutableArray]];
+    UserCoreData *userCoreData=[[UserCoreData alloc]initWithEntity:[NSEntityDescription entityForName:@"UserCoreData" inManagedObjectContext:[self managedObjectContext]] insertIntoManagedObjectContext:self.managedObjectContext];
+    userCoreData.userArrayData=[NSKeyedArchiver archivedDataWithRootObject:tempUserMutableArray];
+    NSError *error=nil;
+    [self.managedObjectContext save:&error];
+    
+
+    
 }
+
 
 +(BOOL)getStaticAccountState{
     return staticAccountState;
@@ -215,6 +246,18 @@
     if (_managedObjectModel) {
         return _managedObjectModel;
     }
+   // create Entity;
+  //  NSEntityDescription *userEntity=[[NSEntityDescription alloc]init];
+  //  [userEntity setName:@"TestUser"];
+  //  [userEntity setManagedObjectClassName:@"TestUser"];
+  //  [_managedObjectModel setEntities:[NSArray arrayWithObjects:userEntity, nil]];
+    
+   //add attributes
+    
+  //  NSAttributeDescription *testUserAttribute=[[NSAttributeDescription alloc]init];
+  //  [testUserAttribute setName:@"testUserData"];
+  //  [testUserAttribute setAttributeType:NSBinaryDataAttributeType];
+  //  [testUserAttribute setOptional:NO];
 	
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"MyMoment" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];

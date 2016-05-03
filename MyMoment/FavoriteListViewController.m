@@ -39,8 +39,9 @@
         
     }
     if ([tableColumn.identifier isEqualTo:@"delete"]) {
-        NSButton *deleteBtn=[tableView makeViewWithIdentifier:@"delete" owner:self];
-       // [deleteBtn setAction:@selector(action:)];
+       NSButton *deleteBtn=[tableView makeViewWithIdentifier:@"delete" owner:self];
+      //  [deleteBtn setAction:@selector(action:)];
+       // [deleteBtn setIdentifier: [NSString stringWithFormat:@"%ld",(long)row]];
         return deleteBtn;
     }
     if ([tableColumn.identifier isEqualTo:@"types"]) {
@@ -61,13 +62,15 @@
     return nil;
 }
 
--(void)action:(id)sender{
-  
-}
-
--(IBAction)clickDeleteBtn:(id)sender{
-    [[AppDelegate getStaticFavoriteListMutableArray] removeObjectAtIndex:self.favoriteListTableView.selectedRow];
+-(IBAction)clickDeletBtn:(id)sender{
+    NSInteger selected = [self.favoriteListTableView rowForView:sender];
+    NSMutableArray *tempFavoriteListMutableArray=[AppDelegate getStaticFavoriteListMutableArray];
+    [tempFavoriteListMutableArray removeObjectAtIndex:selected];
+    [AppDelegate setstaticFavoriteListMutableArray:tempFavoriteListMutableArray];
+    //[[AppDelegate getStaticFavoriteListMutableArray] removeObjectAtIndex:selected];
     [self.favoriteListTableView reloadData];
 }
+
+
 
 @end

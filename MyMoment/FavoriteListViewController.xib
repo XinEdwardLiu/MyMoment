@@ -170,12 +170,12 @@
                                                 <rect key="frame" x="741" y="1" width="101" height="19"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <animations/>
-                                                <buttonCell key="cell" type="square" title="删除" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tZb-0j-Rzj">
+                                                <buttonCell key="cell" type="push" title="删除" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tZb-0j-Rzj">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="clickDeleteBtn:" target="-2" id="o1E-De-0M9"/>
+                                                    <action selector="clickDeletBtn:" target="-2" id="TW2-Cy-Cmn"/>
                                                 </connections>
                                             </button>
                                         </prototypeCellViews>

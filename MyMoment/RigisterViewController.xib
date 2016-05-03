@@ -14,6 +14,7 @@
                 <outlet property="historyListBtn" destination="4Km-yx-DcV" id="2MM-oZ-ECp"/>
                 <outlet property="nameLabel" destination="FMu-Hg-Aen" id="t6a-cp-YFT"/>
                 <outlet property="passwordTextField" destination="Kr1-px-jO7" id="FQ5-OU-YND"/>
+                <outlet property="quitBtn" destination="mHC-hT-RG8" id="Bk9-e6-mzf"/>
                 <outlet property="registerBtn" destination="VUN-lL-QPn" id="HlG-nj-yyG"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -115,6 +116,17 @@
                         </allowedInputSourceLocales>
                     </secureTextFieldCell>
                 </secureTextField>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mHC-hT-RG8">
+                    <rect key="frame" x="42" y="9" width="90" height="53"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" title="Quit" bezelStyle="shadowlessSquare" image="Quit" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="WoH-6h-my9">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="systemBold" size="16"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickQuitBtn:" target="-2" id="H7y-2b-VdL"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <point key="canvasLocation" x="304.5" y="405.5"/>
@@ -123,6 +135,7 @@
     <resources>
         <image name="HistoryList" width="341.27999877929688" height="82.800003051757812"/>
         <image name="NSUser" width="32" height="32"/>
+        <image name="Quit" width="128" height="128"/>
         <image name="favoritelist" width="377.51998901367188" height="82.800003051757812"/>
     </resources>
 </document>

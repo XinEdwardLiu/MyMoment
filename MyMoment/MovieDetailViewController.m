@@ -184,6 +184,7 @@
 -(IBAction)clickAddToFavoriteBtn:(id)sender{
     Movie *tempMovie=[AppDelegate getStaticMovie];
     NSMutableArray *temperFavoriteListMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticFavoriteListMutableArray]];
+    
     if (tempMovie.isFavorite==NO) {
         tempMovie.isFavorite=YES;
         FavoriteMovie *tempFavoriteMovie=[[FavoriteMovie alloc]initWithName:tempMovie.name WithImage:tempMovie.image WithTypes:tempMovie.types WithAuthor:tempMovie.author WithIntroduction:tempMovie.introduction WithCommentMutableArray:tempMovie.commentMutableArray WithScore:tempMovie.score WithIsFavorite:tempMovie.isFavorite WithUserName:[AppDelegate getStaticUser].userName];

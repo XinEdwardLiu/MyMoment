@@ -164,7 +164,7 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                     </tableColumn>
-                                    <tableColumn identifier="time" width="163" minWidth="10" maxWidth="3.4028234663852886e+38" id="8Na-ks-Q5a">
+                                    <tableColumn identifier="time" width="10" minWidth="10" maxWidth="3.4028234663852886e+38" id="8Na-ks-Q5a">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -284,9 +284,9 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MUx-ac-Xa7">
-                    <rect key="frame" x="251" y="174" width="70" height="25"/>
+                    <rect key="frame" x="228" y="172" width="51" height="35"/>
                     <animations/>
-                    <buttonCell key="cell" type="square" title="确认打分" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="nSM-Tu-emu">
+                    <buttonCell key="cell" type="square" title="打分" bezelStyle="shadowlessSquare" image="Confirm" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nSM-Tu-emu">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -303,6 +303,7 @@
         <image name="1star" width="30.719999313354492" height="29.280000686645508"/>
         <image name="1starEmpty" width="30.719999313354492" height="29.280000686645508"/>
         <image name="5star" width="167.52000427246094" height="29.280000686645508"/>
+        <image name="Confirm" width="128" height="128"/>
         <image name="Heart" width="128" height="128"/>
         <image name="message" width="128" height="128"/>
         <image name="澳门风云" width="500" height="332"/>

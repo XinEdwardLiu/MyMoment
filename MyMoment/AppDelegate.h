@@ -11,6 +11,9 @@
 #import "Movie.h"
 #import "Music.h"
 #import "User.h"
+#import "Message.h"
+#import "UserCoreData.h"
+
 
 
 static BOOL staticAccountState;
@@ -31,7 +34,7 @@ static NSMutableArray *staticFavoriteListMutableArray;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong) IBOutlet MainWindowController* mainWindowController;
+@property (strong) IBOutlet MainWindowController *mainWindowController;
 
 +(BOOL)getStaticAccountState;
 +(BOOL)setStaticAcccountState:(BOOL)newAccountState;

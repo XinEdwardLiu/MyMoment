@@ -54,6 +54,8 @@
         [appdelegate.mainWindowController.registerViewController.passwordTextField setHidden:YES];
         [appdelegate.mainWindowController.registerViewController.aboardBtn setHidden:YES];
         [appdelegate.mainWindowController.registerViewController.registerBtn setHidden:YES];
+        [appdelegate.mainWindowController.registerViewController.quitBtn setHidden:NO];
+            [appdelegate.mainWindowController.registerViewController.attentionLabel setHidden:YES];
         BOOL accountState=YES;
         [AppDelegate setStaticAcccountState:accountState];
         

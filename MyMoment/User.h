@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
+#import <Foundation/NSCoder.h>
 @interface User : NSObject
 
 @property NSString *userName;

@@ -23,10 +23,29 @@
     self.view.layer.backgroundColor=[NSColor grayColor].CGColor;
     [self.favoriteListBtn setHidden:YES];
     [self.historyListBtn setHidden:YES];
+    [self.quitBtn setHidden:YES];
    // self.registerInfoViewController=[[RegisterInfoViewController alloc]initWithNibName:@"RegisterInfoViewController" bundle:nil];
 
 }
 
+-(IBAction)clickQuitBtn:(id)sender{
+    [self.accountTextField setHidden:NO];
+    [self.passwordTextField setHidden:NO];
+    [self.aboardBtn setHidden:NO];
+    [self.registerBtn setHidden:NO];
+    [self.favoriteListBtn setHidden:YES];
+    [self.historyListBtn setHidden:YES];
+    [self.attentionLabel setHidden:NO];
+    [self.quitBtn setHidden:YES];
+    self.nameLabel.stringValue=@"";
+    self.attentionLabel.stringValue=@"";
+    self.accountTextField.stringValue=@"";
+    self.passwordTextField.stringValue=@"";
+    [self.modifyView setHidden:YES];
+    BOOL accountState=NO;
+    [AppDelegate setStaticAcccountState:accountState];
+
+}
 
 -(IBAction)clickRegisterBtn:(id)sender{
 
@@ -64,6 +83,7 @@
             [self.favoriteListBtn setHidden:NO];
             [self.historyListBtn setHidden:NO];
             [self.attentionLabel setHidden:YES];
+            [self.quitBtn setHidden:NO];
             BOOL accountState=YES;
             [AppDelegate setStaticAcccountState:accountState];
             [AppDelegate setStaticUser:temperUser];

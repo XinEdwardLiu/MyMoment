@@ -24,4 +24,29 @@
 
 }
 
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super init];
+    if (self) {
+        self.userName = [coder decodeObject];
+        self.userAge = [coder decodeObject];
+        self.userSex=[coder decodeObject];
+        self.userEmailAdress = [coder decodeObject];
+        self.userPhoneNumber = [coder decodeObject];
+        self.userPassword=[coder decodeObject];
+         self.userIntroduction=[coder decodeObject];
+    }
+    return self;
+}
+
+-(void) encodeWithCoder: (NSCoder *) encoder
+{
+    [encoder encodeObject: self.userName];
+    [encoder encodeObject: self.userAge];
+    [encoder encodeObject: self.userSex];
+    [encoder encodeObject: self.userEmailAdress];
+    [encoder encodeObject:self.userIntroduction];
+    [encoder encodeObject:self.userPassword];
+    [encoder encodeObject:self.userPhoneNumber];
+}
+
 @end

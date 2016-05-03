@@ -10,6 +10,10 @@
 #import "RigisterViewController.h"
 #import "MovieDetailViewController.h"
 #import "AppDelegate.h"
+#import "UserCoreData.h"
+
+
+
 @interface MainWindowController ()
 
 
@@ -40,6 +44,26 @@
     //[self.mainMovieScrollView setNeedsDisplay:YES];
     
 }
+
+
+
+
+-(BOOL)windowShouldClose:(id)sender{
+    
+    //save data when app closed
+ //   AppDelegate *appdelegate=[NSApp delegate];
+ //   NSMutableArray *tempUserMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticUserMutableArray]];
+ //   UserCoreData *userCoreData=[[UserCoreData alloc]initWithEntity:[NSEntityDescription entityForName:@"UserCoreData" inManagedObjectContext:[appdelegate managedObjectContext]] insertIntoManagedObjectContext:appdelegate.managedObjectContext];
+ //   userCoreData.userArrayData=[NSKeyedArchiver archivedDataWithRootObject:tempUserMutableArray];
+ //   NSError *error=nil;
+ //   [appdelegate.managedObjectContext save:&error];
+    
+    // save end
+    
+    return YES;
+}
+
+
 
 -(id)initWithWindowNibName:(NSString *)windowNibName{
 
