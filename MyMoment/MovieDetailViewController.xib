@@ -164,7 +164,7 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                     </tableColumn>
-                                    <tableColumn identifier="time" width="10" minWidth="10" maxWidth="3.4028234663852886e+38" id="8Na-ks-Q5a">
+                                    <tableColumn identifier="time" width="167" minWidth="10" maxWidth="3.4028234663852886e+38" id="8Na-ks-Q5a">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>

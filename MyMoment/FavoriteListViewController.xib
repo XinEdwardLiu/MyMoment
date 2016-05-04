@@ -172,7 +172,7 @@
                                                 <animations/>
                                                 <buttonCell key="cell" type="push" title="删除" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tZb-0j-Rzj">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
+                                                    <font key="font" metaFont="cellTitle"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="clickDeletBtn:" target="-2" id="TW2-Cy-Cmn"/>
