@@ -51,7 +51,7 @@
                         </allowedInputSourceLocales>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JRa-jq-r3X">
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JRa-jq-r3X" customClass="NumberField">
                     <rect key="frame" x="344" y="265" width="158" height="22"/>
                     <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="Email" drawsBackground="YES" id="VqO-tz-hPg">

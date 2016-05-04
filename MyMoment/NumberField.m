@@ -18,8 +18,17 @@
 
 -(void) textDidEndEditing:(NSNotification *)aNotification {
     // replace content with its intValue ( or process the input's value differently )
-    [self setIntValue:[self intValue]];
+   // [self setIntValue:[self intValue]];
     // make sure the notification is sent back to any delegate
+    
+    if ([self.stringValue containsString:@"@"]) {
+        return;
+    }
+    else{
+        self.stringValue=@"";
+    self.placeholderString=@"输入不正确";
+    }
+    
    [super controlTextDidEndEditing:aNotification];
 }
 
