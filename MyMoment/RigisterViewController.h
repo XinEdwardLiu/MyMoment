@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "RegisterInfoViewController.h"
 #import "FavoriteListViewController.h"
+#import "HistoryListViewController.h"
 @interface RigisterViewController : NSViewController
 @property IBOutlet NSTextField *accountTextField;
 @property IBOutlet NSTextField *passwordTextField;
@@ -20,11 +21,13 @@
 @property NSView *registerView;
 @property NSView *modifyView;
 @property NSView *favoriteView;
+@property NSView *historyView;
 
 @property IBOutlet NSTextField *attentionLabel;
 @property IBOutlet NSButton *quitBtn;
 
 @property (strong) IBOutlet RegisterInfoViewController *registerInfoViewController;
 @property (strong) IBOutlet FavoriteListViewController *favoriteListViewController;
+@property (strong) IBOutlet HistoryListViewController *historyListViewController;
 
 @end

@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface HistoryListViewController : NSViewController
-
+@interface HistoryListViewController : NSViewController<NSTableViewDelegate,NSTableViewDataSource>
+@property IBOutlet NSTableView *historyListTableView;
 @end

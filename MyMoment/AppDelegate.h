@@ -27,6 +27,8 @@ static User *staticUser;
 static NSInteger staticUserRow;
 static NSMutableArray *staticUserMutableArray;
 static NSMutableArray *staticFavoriteListMutableArray;
+static NSMutableArray *staticHistoryListMutableArray;
+static NSInteger staticMovieRow;
 
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
@@ -69,6 +71,11 @@ static NSMutableArray *staticFavoriteListMutableArray;
 +(NSMutableArray *)getStaticFavoriteListMutableArray;
 +(NSMutableArray *)setstaticFavoriteListMutableArray:(NSMutableArray *)newFavoriteMutableArray;
 
++(NSMutableArray *)getStaticHistoryListMutableArray;
++(NSMutableArray *)setstaticHistoryListMutableArray:(NSMutableArray *)newHistoryListMutableArray;
+
++(NSInteger)getStaticMovieRow;
++(NSInteger)setStaticMovieRow:(NSInteger)row;
 
 @end
 

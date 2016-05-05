@@ -125,8 +125,10 @@
     [appdelegate.mainWindowController.musicView setHidden:YES];
     [appdelegate.mainWindowController.movieView setHidden:YES];
     [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
-    [appdelegate.mainWindowController.window.contentView addSubview:self.modifyView];
         [self.favoriteView setHidden:YES];
+        [self.historyView setHidden:YES];
+    [appdelegate.mainWindowController.window.contentView addSubview:self.modifyView];
+
        
     }
 }
@@ -145,6 +147,8 @@
     [appdelegate.mainWindowController.musicView setHidden:YES];
     [appdelegate.mainWindowController.movieView setHidden:YES];
     [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
+    [self.historyView setHidden:YES];
+    [self.modifyView setHidden:YES];
     [appdelegate.mainWindowController.window.contentView addSubview:self.favoriteView];
 
 
@@ -152,7 +156,24 @@
 }
 
 
+-(IBAction)clickHistoryBtn:(id)sender{
+    
+    self.historyListViewController=[[HistoryListViewController alloc]initWithNibName:@"HistoryListViewController" bundle:nil];
+    self.historyView=self.historyListViewController.view;
+    NSRect favoriteFrame=NSMakeRect(179, 47.5, 846, 468);
+    [self.historyView setFrame:favoriteFrame];
+    
+    AppDelegate *appdelegate=[NSApp delegate];
+    [appdelegate.mainWindowController.mainView setHidden:YES];
+    [appdelegate.mainWindowController.movieView setHidden:YES];
+    [appdelegate.mainWindowController.musicView setHidden:YES];
+    [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
+    [self.favoriteView setHidden:YES];
+    [self.modifyView setHidden:YES];
+    [appdelegate.mainWindowController.window.contentView addSubview:self.historyView];
 
+
+}
 
 
 

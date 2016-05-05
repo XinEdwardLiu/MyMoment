@@ -83,6 +83,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="clickHistoryBtn:" target="-2" id="Xlk-xH-uQa"/>
+                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xoj-Wb-5fO">
                     <rect key="frame" x="33" y="87" width="47" height="32"/>
@@ -117,7 +120,7 @@
                     </secureTextFieldCell>
                 </secureTextField>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mHC-hT-RG8">
-                    <rect key="frame" x="42" y="9" width="90" height="53"/>
+                    <rect key="frame" x="45" y="9" width="90" height="53"/>
                     <animations/>
                     <buttonCell key="cell" type="square" title="Quit" bezelStyle="shadowlessSquare" image="Quit" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="WoH-6h-my9">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

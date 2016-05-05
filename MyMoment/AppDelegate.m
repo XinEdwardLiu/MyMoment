@@ -23,6 +23,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    
   //  UserCoreData *temperUserCoreData=[[UserCoreData alloc]initWithEntity:[NSEntityDescription entityForName:@"UserCoreData" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
     //
     NSError *error=nil;
@@ -228,6 +229,22 @@
     return staticFavoriteListMutableArray;
 }
 
+
++(NSMutableArray *)getStaticHistoryListMutableArray{
+    return staticHistoryListMutableArray;
+}
++(NSMutableArray *)setstaticHistoryListMutableArray:(NSMutableArray *)newHistoryListMutableArray{
+    staticHistoryListMutableArray=newHistoryListMutableArray;
+    return staticHistoryListMutableArray;
+}
+
++(NSInteger)getStaticMovieRow{
+    return staticMovieRow;
+}
++(NSInteger)setStaticMovieRow:(NSInteger)row{
+    staticMovieRow=row;
+    return staticMovieRow;
+}
 
 #pragma mark - Core Data stack
 

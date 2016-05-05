@@ -91,6 +91,7 @@
     [self.registerViewController.registerView setHidden:YES];
     [self.registerViewController.modifyView setHidden:YES];
     [self.registerViewController.favoriteView setHidden:YES];
+    [self.registerViewController.historyView setHidden:YES];
     
 }
 
@@ -111,6 +112,7 @@
     [self.registerViewController.registerView setHidden:YES];
     [self.registerViewController.modifyView setHidden:YES];
       [self.registerViewController.favoriteView setHidden:YES];
+     [self.registerViewController.historyView setHidden:YES];
 }
 
 -(IBAction)clickMusicBtn:(id)sender{
@@ -128,7 +130,8 @@ NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     [self.window.contentView addSubview:self.musicView];
     [self.registerViewController.registerView setHidden:YES];
     [self.registerViewController.modifyView setHidden:YES];
-      [self.registerViewController.favoriteView setHidden:YES];
+    [self.registerViewController.favoriteView setHidden:YES];
+     [self.registerViewController.historyView setHidden:YES];
 
 }
 
@@ -146,11 +149,34 @@ NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
 
 -(IBAction)clickMovieTableView:(id)sender{
     NSInteger row=self.mainMovieTableView.selectedRow;
+    [AppDelegate setStaticMovieRow:row];
     
     NSMutableArray *mainMovieMutableArray=[AppDelegate getStaticMovieMutableArray];
     Movie *selectedMovie=[mainMovieMutableArray objectAtIndex:row];
     [AppDelegate setStaticMovie:selectedMovie];
     
+    //
+    NSMutableArray *tempHistoryListMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticHistoryListMutableArray]];
+    if ([tempHistoryListMutableArray count]==0)
+    {
+        [tempHistoryListMutableArray addObject:selectedMovie];
+    }
+    else
+    {
+        if ([tempHistoryListMutableArray containsObject:selectedMovie])
+        {
+            [tempHistoryListMutableArray removeObject:selectedMovie];
+            [tempHistoryListMutableArray insertObject:selectedMovie atIndex:0];
+        }
+        else
+        {     [tempHistoryListMutableArray insertObject:selectedMovie atIndex:0];
+            //[tempHistoryListMutableArray addObject:selectedMovie];
+        }
+    }
+    
+    [AppDelegate setstaticHistoryListMutableArray:tempHistoryListMutableArray];
+    [self.registerViewController.historyListViewController.historyListTableView reloadData];
+    //
     NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     self.movieDetailViewController=[[MovieDetailViewController alloc]initWithNibName:@"MovieDetailViewController" bundle:nil];
     self.movieDetailView=self.movieDetailViewController.view;
@@ -165,7 +191,28 @@ NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     NSMutableArray *mainMovieMutableArray=[AppDelegate getStaticMovieMutableArray];
     Movie *selectedMovie=[mainMovieMutableArray objectAtIndex:row];
     [AppDelegate setStaticMovie:selectedMovie];
-    
+    //
+    NSMutableArray *tempHistoryListMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticHistoryListMutableArray]];
+    if ([tempHistoryListMutableArray count]==0)
+    {
+        [tempHistoryListMutableArray addObject:selectedMovie];
+    }
+    else
+    {
+        if ([tempHistoryListMutableArray containsObject:selectedMovie])
+        {
+            [tempHistoryListMutableArray removeObject:selectedMovie];
+            [tempHistoryListMutableArray insertObject:selectedMovie atIndex:0];
+        }
+        else
+        {     [tempHistoryListMutableArray insertObject:selectedMovie atIndex:0];
+            //[tempHistoryListMutableArray addObject:selectedMovie];
+        }
+    }
+    [AppDelegate setstaticHistoryListMutableArray:tempHistoryListMutableArray];
+    [self.registerViewController.historyListViewController.historyListTableView reloadData];
+   
+    //
     NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     self.movieDetailViewController=[[MovieDetailViewController alloc]initWithNibName:@"MovieDetailViewController" bundle:nil];
     self.movieDetailView=self.movieDetailViewController.view;
@@ -190,7 +237,27 @@ NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     Movie *selectedMovie=[mainMovieScoreRankingMutaleArray objectAtIndex:row];
     //[AppDelegate setStaticScoreRankingMovie:selectedMovie];
     [AppDelegate setStaticMovie:selectedMovie];
-    
+    //
+    NSMutableArray *tempHistoryListMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticHistoryListMutableArray]];
+    if ([tempHistoryListMutableArray count]==0)
+    {
+        [tempHistoryListMutableArray addObject:selectedMovie];
+    }
+    else
+    {
+        if ([tempHistoryListMutableArray containsObject:selectedMovie])
+        {
+            [tempHistoryListMutableArray removeObject:selectedMovie];
+            [tempHistoryListMutableArray insertObject:selectedMovie atIndex:0];
+        }
+        else
+        {     [tempHistoryListMutableArray insertObject:selectedMovie atIndex:0];
+            //[tempHistoryListMutableArray addObject:selectedMovie];
+        }
+    }
+    [AppDelegate setstaticHistoryListMutableArray:tempHistoryListMutableArray];
+    [self.registerViewController.historyListViewController.historyListTableView reloadData];
+    //
     NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     self.movieDetailViewController=[[MovieDetailViewController alloc]initWithNibName:@"MovieDetailViewController" bundle:nil];
     self.movieDetailView=self.movieDetailViewController.view;

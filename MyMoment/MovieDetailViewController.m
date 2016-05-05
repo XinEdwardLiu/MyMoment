@@ -20,15 +20,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    Movie *selectedMovie=[AppDelegate getStaticMovie];
+    self.selectedMovie=[AppDelegate getStaticMovie];
     
-    self.nameLabel.stringValue=[selectedMovie valueForKey:@"name"];
-    self.styleLabel.stringValue=[selectedMovie valueForKey:@"types"];
-    self.authorLabel.stringValue=[selectedMovie valueForKey:@"author"];
-    self.introductionLabel.stringValue=[selectedMovie valueForKey:@"introduction"];
-    self.resultScoreLabel.stringValue=[selectedMovie valueForKey:@"score"];
+    self.nameLabel.stringValue=[self.selectedMovie valueForKey:@"name"];
+    self.styleLabel.stringValue=[self.selectedMovie valueForKey:@"types"];
+    self.authorLabel.stringValue=[self.selectedMovie valueForKey:@"author"];
+    self.introductionLabel.stringValue=[self.selectedMovie valueForKey:@"introduction"];
+    self.resultScoreLabel.stringValue=[self.selectedMovie valueForKey:@"score"];
     
-     score=[[selectedMovie valueForKey:@"score"] floatValue];
+     score=[[self.selectedMovie valueForKey:@"score"] floatValue];
     
     NSImage *scoreStarImage;
     
@@ -49,7 +49,7 @@
         }
         [self.resultStarImageView setImage:scoreStarImage];
     
-    self.messageMutableArray=[selectedMovie valueForKey:@"commentMutableArray"];
+    self.messageMutableArray=[self.selectedMovie valueForKey:@"commentMutableArray"];
     [AppDelegate setStaticCommentMutableArray:self.messageMutableArray];
     
     if ([AppDelegate getStaticAccountState]==NO) {
@@ -64,7 +64,8 @@
 
 -(IBAction)clickSubmitMessageBtn:(id)sender{
     
-    if([AppDelegate getStaticAccountState]==NO){
+    if([AppDelegate getStaticAccountState]==NO)
+    {
         
             NSAlert *alert = [[NSAlert alloc] init];
             [alert addButtonWithTitle:@"确认"];
@@ -74,24 +75,35 @@
             [alert runModal];
     
     }
-    else if([AppDelegate getStaticAccountState]==YES){
+    else if([AppDelegate getStaticAccountState]==YES)
+    {
         AppDelegate *appdelegate=[NSApp delegate];
         NSString *temperSender=appdelegate.mainWindowController.registerViewController.nameLabel.stringValue;
+        //set date formatter
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.dateStyle = NSDateFormatterMediumStyle;
         dateFormatter.timeStyle = NSDateFormatterShortStyle;
-        
         NSString *temperTime=[dateFormatter stringFromDate:[NSDate date]];
-    if ([self.messageTextField.stringValue isEqual:@""]) {
+        //end
+    if ([self.messageTextField.stringValue isEqual:@""])
+        {
         return;
-    }
-    else{
+        }
+    else
+    {
         self.message=self.messageTextField.stringValue;
         Message *temperMessage=[[Message alloc]initWithSender:temperSender WithComment:self.message WithTime:temperTime];
         [self.messageMutableArray addObject:temperMessage];
         [AppDelegate setStaticCommentMutableArray:self.messageMutableArray];
+        
+        self.selectedMovie.commentMutableArray=[AppDelegate getStaticCommentMutableArray];
+        [AppDelegate setStaticMovie:self.selectedMovie];
+        NSMutableArray *movieTableListMutableArray=[AppDelegate getStaticMovieMutableArray];
+        [movieTableListMutableArray removeObjectAtIndex:[AppDelegate getStaticMovieRow]];
+        [movieTableListMutableArray insertObject:self.selectedMovie atIndex:[AppDelegate getStaticMovieRow]];
+        [AppDelegate setStaticMovieMutableArray:movieTableListMutableArray];
     }
-    [self.messageTableView reloadData];
+      [self.messageTableView reloadData];
     }
 }
 
