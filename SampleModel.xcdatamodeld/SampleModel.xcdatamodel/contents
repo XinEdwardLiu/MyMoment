@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
+    <entity name="XJComment" representedClassName="XJComment" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XJUser" inverseName="user_comments" inverseEntity="XJUser" syncable="YES"/>
+        <relationship name="movie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XJMovie" inverseName="movie_comments" inverseEntity="XJMovie" syncable="YES"/>
+    </entity>
+    <entity name="XJMovie" representedClassName="XJMovie" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="movie_comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="XJComment" inverseName="movie" inverseEntity="XJComment" syncable="YES"/>
+    </entity>
+    <entity name="XJUser" representedClassName="XJUser" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user_comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="XJComment" inverseName="author" inverseEntity="XJComment" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="XJUser" positionX="61" positionY="-63" width="128" height="88"/>
+        <element name="XJMovie" positionX="225" positionY="-63" width="128" height="73"/>
+        <element name="XJComment" positionX="70" positionY="189" width="146" height="88"/>
+    </elements>
+</model>

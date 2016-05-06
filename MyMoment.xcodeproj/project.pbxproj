@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF1628C71CDC69DA0017CEE1 /* SampleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF1628C51CDC69DA0017CEE1 /* SampleModel.xcdatamodeld */; };
+		AF1629321CDC93B90017CEE1 /* XJUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1629271CDC93B90017CEE1 /* XJUser+CoreDataProperties.m */; };
+		AF1629331CDC93B90017CEE1 /* XJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1629291CDC93B90017CEE1 /* XJUser.m */; };
+		AF1629341CDC93B90017CEE1 /* XJMovie+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AF16292B1CDC93B90017CEE1 /* XJMovie+CoreDataProperties.m */; };
+		AF1629351CDC93B90017CEE1 /* XJMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = AF16292D1CDC93B90017CEE1 /* XJMovie.m */; };
+		AF1629361CDC93B90017CEE1 /* XJComment+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AF16292F1CDC93B90017CEE1 /* XJComment+CoreDataProperties.m */; };
+		AF1629371CDC93B90017CEE1 /* XJComment.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1629311CDC93B90017CEE1 /* XJComment.m */; };
 		BD11A18F1C9A59D400087582 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD11A18E1C9A59D400087582 /* AppDelegate.m */; };
 		BD11A1921C9A59D400087582 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD11A1911C9A59D400087582 /* main.m */; };
 		BD11A1951C9A59D400087582 /* MyMoment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD11A1931C9A59D400087582 /* MyMoment.xcdatamodeld */; };
@@ -47,6 +54,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF1628C61CDC69DA0017CEE1 /* SampleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModel.xcdatamodel; sourceTree = "<group>"; };
+		AF1629261CDC93B90017CEE1 /* XJUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XJUser+CoreDataProperties.h"; path = "Xujian/XJUser+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AF1629271CDC93B90017CEE1 /* XJUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XJUser+CoreDataProperties.m"; path = "Xujian/XJUser+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AF1629281CDC93B90017CEE1 /* XJUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XJUser.h; path = Xujian/XJUser.h; sourceTree = "<group>"; };
+		AF1629291CDC93B90017CEE1 /* XJUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XJUser.m; path = Xujian/XJUser.m; sourceTree = "<group>"; };
+		AF16292A1CDC93B90017CEE1 /* XJMovie+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XJMovie+CoreDataProperties.h"; path = "Xujian/XJMovie+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AF16292B1CDC93B90017CEE1 /* XJMovie+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XJMovie+CoreDataProperties.m"; path = "Xujian/XJMovie+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AF16292C1CDC93B90017CEE1 /* XJMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XJMovie.h; path = Xujian/XJMovie.h; sourceTree = "<group>"; };
+		AF16292D1CDC93B90017CEE1 /* XJMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XJMovie.m; path = Xujian/XJMovie.m; sourceTree = "<group>"; };
+		AF16292E1CDC93B90017CEE1 /* XJComment+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XJComment+CoreDataProperties.h"; path = "Xujian/XJComment+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AF16292F1CDC93B90017CEE1 /* XJComment+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XJComment+CoreDataProperties.m"; path = "Xujian/XJComment+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AF1629301CDC93B90017CEE1 /* XJComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XJComment.h; path = Xujian/XJComment.h; sourceTree = "<group>"; };
+		AF1629311CDC93B90017CEE1 /* XJComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XJComment.m; path = Xujian/XJComment.m; sourceTree = "<group>"; };
 		BD11A18A1C9A59D400087582 /* MyMoment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD11A18D1C9A59D400087582 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD11A18E1C9A59D400087582 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -121,9 +141,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF1628CE1CDC91170017CEE1 /* SampleDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF1629261CDC93B90017CEE1 /* XJUser+CoreDataProperties.h */,
+				AF1629271CDC93B90017CEE1 /* XJUser+CoreDataProperties.m */,
+				AF1629281CDC93B90017CEE1 /* XJUser.h */,
+				AF1629291CDC93B90017CEE1 /* XJUser.m */,
+				AF16292A1CDC93B90017CEE1 /* XJMovie+CoreDataProperties.h */,
+				AF16292B1CDC93B90017CEE1 /* XJMovie+CoreDataProperties.m */,
+				AF16292C1CDC93B90017CEE1 /* XJMovie.h */,
+				AF16292D1CDC93B90017CEE1 /* XJMovie.m */,
+				AF16292E1CDC93B90017CEE1 /* XJComment+CoreDataProperties.h */,
+				AF16292F1CDC93B90017CEE1 /* XJComment+CoreDataProperties.m */,
+				AF1629301CDC93B90017CEE1 /* XJComment.h */,
+				AF1629311CDC93B90017CEE1 /* XJComment.m */,
+				AF1628C51CDC69DA0017CEE1 /* SampleModel.xcdatamodeld */,
+			);
+			name = SampleDataModel;
+			sourceTree = "<group>";
+		};
 		BD11A1811C9A59D400087582 = {
 			isa = PBXGroup;
 			children = (
+				AF1628CE1CDC91170017CEE1 /* SampleDataModel */,
 				BD11A18C1C9A59D400087582 /* MyMoment */,
 				BD11A18B1C9A59D400087582 /* Products */,
 				BD34B26D1CB608280070376B /* 未标题-2.png */,
@@ -295,6 +336,7 @@
 				BD55C3171CC3E18E00610137 /* Movie.m in Sources */,
 				BD55C3141CC3C9A100610137 /* MainMusicTableViewController.m in Sources */,
 				BD6C0B201CCD561B001704B4 /* FavoriteListViewController.m in Sources */,
+				AF1629361CDC93B90017CEE1 /* XJComment+CoreDataProperties.m in Sources */,
 				BD83948B1CD79AD000D44802 /* UserCoreData.m in Sources */,
 				BD6C0B171CCBC573001704B4 /* User.m in Sources */,
 				BD83948F1CD9AB1B00D44802 /* NumberField.m in Sources */,
@@ -304,17 +346,23 @@
 				BD6C0B2D1CCEB2C3001704B4 /* FavoriteMovie.m in Sources */,
 				BD55C30D1CC1BE1100610137 /* MusicDetailViewController.m in Sources */,
 				BD11A1951C9A59D400087582 /* MyMoment.xcdatamodeld in Sources */,
+				AF1629321CDC93B90017CEE1 /* XJUser+CoreDataProperties.m in Sources */,
 				BD11A1921C9A59D400087582 /* main.m in Sources */,
 				BD11A1AC1C9FDD3E00087582 /* RigisterViewController.m in Sources */,
 				BD3769411CCA98BB00392C63 /* MovieAllTableViewController.m in Sources */,
+				AF1629331CDC93B90017CEE1 /* XJUser.m in Sources */,
 				BD3769471CCA992500392C63 /* MusicAllTableViewController.m in Sources */,
+				AF1628C71CDC69DA0017CEE1 /* SampleModel.xcdatamodeld in Sources */,
 				BD37694A1CCA994B00392C63 /* MusicScoreRankingTableView.m in Sources */,
 				BD11A1A71C9A5C0600087582 /* MainWindowController.m in Sources */,
 				BD55C3081CBF33A800610137 /* RegisterInfoViewController.m in Sources */,
 				BD55C3111CC3C96700610137 /* MainMovieTableViewController.m in Sources */,
 				BD37693E1CCA771600392C63 /* Message.m in Sources */,
+				AF1629371CDC93B90017CEE1 /* XJComment.m in Sources */,
+				AF1629341CDC93B90017CEE1 /* XJMovie+CoreDataProperties.m in Sources */,
 				BD83948C1CD79AD000D44802 /* UserCoreData+CoreDataProperties.m in Sources */,
 				BD3769441CCA98FA00392C63 /* MovieScoreRankingTableView.m in Sources */,
+				AF1629351CDC93B90017CEE1 /* XJMovie.m in Sources */,
 				BD11A18F1C9A59D400087582 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +508,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		AF1628C51CDC69DA0017CEE1 /* SampleModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AF1628C61CDC69DA0017CEE1 /* SampleModel.xcdatamodel */,
+			);
+			currentVersion = AF1628C61CDC69DA0017CEE1 /* SampleModel.xcdatamodel */;
+			path = SampleModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		BD11A1931C9A59D400087582 /* MyMoment.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
