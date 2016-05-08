@@ -9,9 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "Message.h"
 #import "Movie.h"
-@interface MovieDetailViewController : NSViewController<NSTableViewDelegate,NSTableViewDataSource>
-{ float score;
-}
+@interface MovieDetailViewController : NSViewController
+
+@property float score;
 
 @property IBOutlet NSButton *oneScoreBtn;
 @property IBOutlet NSButton *twoScoreBtn;
@@ -38,5 +38,5 @@
 
 @property IBOutlet NSButton *addToFavoriteBtn;
 
-@property Movie *selectedMovie;
+//@property Movie *selectedMovie;
 @end

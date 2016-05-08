@@ -42,6 +42,7 @@
 		BD83948B1CD79AD000D44802 /* UserCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8394881CD79AD000D44802 /* UserCoreData.m */; };
 		BD83948C1CD79AD000D44802 /* UserCoreData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = BD83948A1CD79AD000D44802 /* UserCoreData+CoreDataProperties.m */; };
 		BD83948F1CD9AB1B00D44802 /* NumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = BD83948E1CD9AB1B00D44802 /* NumberField.m */; };
+		BD8394921CDDAF6600D44802 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8394911CDDAF6600D44802 /* MessageTableViewController.m */; };
 		BD9779A61CB7EE9B00319214 /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9779A41CB7EE9B00319214 /* MovieDetailViewController.m */; };
 		BD9779A71CB7EE9B00319214 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD9779A51CB7EE9B00319214 /* MovieDetailViewController.xib */; };
 /* End PBXBuildFile section */
@@ -105,6 +106,8 @@
 		BD83948A1CD79AD000D44802 /* UserCoreData+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UserCoreData+CoreDataProperties.m"; sourceTree = "<group>"; };
 		BD83948D1CD9AB1B00D44802 /* NumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberField.h; sourceTree = "<group>"; };
 		BD83948E1CD9AB1B00D44802 /* NumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberField.m; sourceTree = "<group>"; };
+		BD8394901CDDAF6600D44802 /* MessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = "<group>"; };
+		BD8394911CDDAF6600D44802 /* MessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
 		BD9779A31CB7EE9B00319214 /* MovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailViewController.h; sourceTree = "<group>"; };
 		BD9779A41CB7EE9B00319214 /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
 		BD9779A51CB7EE9B00319214 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
@@ -185,6 +188,8 @@
 				BD55C3071CBF33A800610137 /* RegisterInfoViewController.xib */,
 				BD9779A31CB7EE9B00319214 /* MovieDetailViewController.h */,
 				BD9779A41CB7EE9B00319214 /* MovieDetailViewController.m */,
+				BD8394901CDDAF6600D44802 /* MessageTableViewController.h */,
+				BD8394911CDDAF6600D44802 /* MessageTableViewController.m */,
 				BD9779A51CB7EE9B00319214 /* MovieDetailViewController.xib */,
 				BD55C30A1CC1BE1100610137 /* MusicDetailViewController.h */,
 				BD55C30B1CC1BE1100610137 /* MusicDetailViewController.m */,
@@ -308,6 +313,7 @@
 				BD11A1AC1C9FDD3E00087582 /* RigisterViewController.m in Sources */,
 				BD3769411CCA98BB00392C63 /* MovieAllTableViewController.m in Sources */,
 				BD3769471CCA992500392C63 /* MusicAllTableViewController.m in Sources */,
+				BD8394921CDDAF6600D44802 /* MessageTableViewController.m in Sources */,
 				BD37694A1CCA994B00392C63 /* MusicScoreRankingTableView.m in Sources */,
 				BD11A1A71C9A5C0600087582 /* MainWindowController.m in Sources */,
 				BD55C3081CBF33A800610137 /* RegisterInfoViewController.m in Sources */,

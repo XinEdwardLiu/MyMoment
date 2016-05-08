@@ -58,7 +58,7 @@
     NSString *currentTime=[dateFormatter stringFromDate:[NSDate date]];
     Message *firstMessage=[[Message alloc]initWithSender:@"楼主" WithComment:@"沙发，欢迎评论！" WithTime:currentTime];
     NSMutableArray *commentMutableArray=[[NSMutableArray alloc]initWithObjects:firstMessage, nil];
-    [AppDelegate setStaticCommentMutableArray:commentMutableArray];
+    //,[AppDelegate setStaticCommentMutableArray:commentMutableArray];
     
     Music *music1=[[Music alloc]initWithName:@"Let It Go" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray WithScore:5];
     Music *music2=[[Music alloc]initWithName:@"You are beautiful" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray WithScore:5];
@@ -144,13 +144,13 @@
     return staticAccountState;
 }
 
-+(NSMutableArray *)getStaticCommentMutableArray{
-    return staticCommentMutableArray;
-}
-+(NSMutableArray *)setStaticCommentMutableArray:(NSMutableArray *)newCommentMutableArray{
-    staticCommentMutableArray=newCommentMutableArray;
-    return staticCommentMutableArray;
-}
+//+(NSMutableArray *)getStaticCommentMutableArray{
+//    return staticCommentMutableArray;
+//}
+//+(NSMutableArray *)setStaticCommentMutableArray:(NSMutableArray *)newCommentMutableArray{
+//    staticCommentMutableArray=newCommentMutableArray;
+//    return staticCommentMutableArray;
+//}
 
 
 +(NSMutableArray *)getStaticMovieMutableArray{

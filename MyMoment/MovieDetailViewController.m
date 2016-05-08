@@ -16,41 +16,44 @@
 @end
 
 @implementation MovieDetailViewController
-
+-(void)viewWillAppear{
+    //[self.messageTableView reloadData];
+   
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.selectedMovie=[AppDelegate getStaticMovie];
+    Movie *selectedMovie=[AppDelegate getStaticMovie];
     
-    self.nameLabel.stringValue=[self.selectedMovie valueForKey:@"name"];
-    self.styleLabel.stringValue=[self.selectedMovie valueForKey:@"types"];
-    self.authorLabel.stringValue=[self.selectedMovie valueForKey:@"author"];
-    self.introductionLabel.stringValue=[self.selectedMovie valueForKey:@"introduction"];
-    self.resultScoreLabel.stringValue=[self.selectedMovie valueForKey:@"score"];
+    self.nameLabel.stringValue=[selectedMovie valueForKey:@"name"];
+    self.styleLabel.stringValue=[selectedMovie valueForKey:@"types"];
+    self.authorLabel.stringValue=[selectedMovie valueForKey:@"author"];
+    self.introductionLabel.stringValue=[selectedMovie valueForKey:@"introduction"];
+    self.resultScoreLabel.stringValue=[selectedMovie valueForKey:@"score"];
     
-     score=[[self.selectedMovie valueForKey:@"score"] floatValue];
+    self.score=[[selectedMovie valueForKey:@"score"] floatValue];
     
     NSImage *scoreStarImage;
     
-     if (score>=4.5) {
-            scoreStarImage=[NSImage imageNamed:@"5star"];
-        }
-        else if(score>=3.5&score<4.5){
-            scoreStarImage=[NSImage imageNamed:@"4star"];
-        }
-        else if(score>=2.5&score<3.5){
-            scoreStarImage=[NSImage imageNamed:@"3star"];
-        }
-        else if(score>=1.5&score<2.5){
-            scoreStarImage=[NSImage imageNamed:@"2star"];
-        }
-        else if(score<1.5){
-            scoreStarImage=[NSImage imageNamed:@"1star"];
-        }
-        [self.resultStarImageView setImage:scoreStarImage];
+    if ( self.score>=4.5) {
+        scoreStarImage=[NSImage imageNamed:@"5star"];
+    }
+    else if( self.score>=3.5&self.score<4.5){
+        scoreStarImage=[NSImage imageNamed:@"4star"];
+    }
+    else if(self.score>=2.5&self.score<3.5){
+        scoreStarImage=[NSImage imageNamed:@"3star"];
+    }
+    else if(self.score>=1.5&self.score<2.5){
+        scoreStarImage=[NSImage imageNamed:@"2star"];
+    }
+    else if(self.score<1.5){
+        scoreStarImage=[NSImage imageNamed:@"1star"];
+    }
+    [self.resultStarImageView setImage:scoreStarImage];
     
-    self.messageMutableArray=[self.selectedMovie valueForKey:@"commentMutableArray"];
-    [AppDelegate setStaticCommentMutableArray:self.messageMutableArray];
+    self.messageMutableArray=[[NSMutableArray alloc]initWithArray:selectedMovie.commentMutableArray];
+    //[AppDelegate setStaticCommentMutableArray:[staticMovie valueForKey:@"commentMutableArray"]];
     
     if ([AppDelegate getStaticAccountState]==NO) {
         [self.addToFavoriteBtn setHidden:YES];
@@ -60,54 +63,78 @@
         [self.addToFavoriteBtn setHidden:NO];
     }
     
-}
+    [self.messageTableView reloadData];
+   // NSLog(@"%@",self.messageMutableArray);
+   // NSLog(@"%@",[[AppDelegate getStaticMovie] valueForKey:@"name"]);
+   // NSLog(@"%@",[[[[AppDelegate getStaticMovie] valueForKey:@"commentMutableArray"] objectAtIndex:0] valueForKey:@"comment"]);
+    
+    NSLog(@"%@",[[[AppDelegate getStaticMovieMutableArray] objectAtIndex:0] valueForKey:@"commentMutableArray"]);
+   }
 
 -(IBAction)clickSubmitMessageBtn:(id)sender{
-    
-    if([AppDelegate getStaticAccountState]==NO)
+
+    if([AppDelegate getStaticAccountState]==YES)
     {
         
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert addButtonWithTitle:@"确认"];
-            [alert setMessageText:@"评论前请先登陆"];
-            [alert setInformativeText:@"若无登陆账号，请先注册"];
-            [alert setAlertStyle:NSInformationalAlertStyle];
-            [alert runModal];
-    
-    }
-    else if([AppDelegate getStaticAccountState]==YES)
-    {
-        AppDelegate *appdelegate=[NSApp delegate];
-        NSString *temperSender=appdelegate.mainWindowController.registerViewController.nameLabel.stringValue;
-        //set date formatter
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-        dateFormatter.timeStyle = NSDateFormatterShortStyle;
-        NSString *temperTime=[dateFormatter stringFromDate:[NSDate date]];
-        //end
-    if ([self.messageTextField.stringValue isEqual:@""])
-        {
-        return;
+        if ([self.messageTextField.stringValue isEqual:@""]){
+            return;
         }
-    else
-    {
-        self.message=self.messageTextField.stringValue;
-        Message *temperMessage=[[Message alloc]initWithSender:temperSender WithComment:self.message WithTime:temperTime];
-        [self.messageMutableArray addObject:temperMessage];
-        [AppDelegate setStaticCommentMutableArray:self.messageMutableArray];
+        else
+        {
+            AppDelegate *appdelegate=[NSApp delegate];
+            NSString *temperSender=appdelegate.mainWindowController.registerViewController.nameLabel.stringValue;
+            
+            //set date formatter
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+            dateFormatter.timeStyle = NSDateFormatterShortStyle;
+            NSString *temperTime=[dateFormatter stringFromDate:[NSDate date]];
+            //end
+
+            self.message=self.messageTextField.stringValue;
+            Message *temperMessage=[[Message alloc]initWithSender:temperSender WithComment:self.message WithTime:temperTime];
+            //[self.messageMutableArray addObject:temperMessage];
+            [self.messageMutableArray addObject:temperMessage];
+             NSLog(@"%@",self.messageMutableArray);
+            [self.messageTableView reloadData];
+            
+            NSMutableArray *movieTableListMuTableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticMovieMutableArray]];
+            Movie *tempMovie=[movieTableListMuTableArray objectAtIndex:[AppDelegate getStaticMovieRow]];
+            [tempMovie.commentMutableArray removeAllObjects];
+            [tempMovie.commentMutableArray addObject:self.messageMutableArray];
+            NSLog(@"%@",tempMovie.commentMutableArray);
+            
+            //Movie *selectedMovie=[AppDelegate getStaticMovie];
+            //selectedMovie.commentMutableArray=self.messageMutableArray;
+            
+           // [AppDelegate setStaticMovie:selectedMovie];
+            
+            //[AppDelegate setStaticCommentMutableArray:self.messageMutableArray];
+            
+            // self.selectedMovie.commentMutableArray=self.messageMutableArray;
+            
+            // [AppDelegate setStaticMovie:self.selectedMovie];
+           
+           // NSLog(@"%@",[[AppDelegate getStaticMovie] valueForKey:@"name"]);
+           // NSLog(@"%@",[[AppDelegate getStaticMovie] valueForKey:@"commentMutableArray"]);
+            
+            //[appdelegate.mainWindowController.mainMovieTableView reloadData];
+            NSLog(@"%@",[[[AppDelegate getStaticMovieMutableArray] objectAtIndex:1] valueForKey:@"commentMutableArray"]);
+        }
         
-        self.selectedMovie.commentMutableArray=[AppDelegate getStaticCommentMutableArray];
-        [AppDelegate setStaticMovie:self.selectedMovie];
-        NSMutableArray *movieTableListMutableArray=[AppDelegate getStaticMovieMutableArray];
-        [movieTableListMutableArray removeObjectAtIndex:[AppDelegate getStaticMovieRow]];
-        [movieTableListMutableArray insertObject:self.selectedMovie atIndex:[AppDelegate getStaticMovieRow]];
-        [AppDelegate setStaticMovieMutableArray:movieTableListMutableArray];
     }
-      [self.messageTableView reloadData];
-    }
+    else if([AppDelegate getStaticAccountState]==NO)
+    {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"确认"];
+        [alert setMessageText:@"评论前请先登陆"];
+        [alert setInformativeText:@"若无登陆账号，请先注册"];
+        [alert setAlertStyle:NSInformationalAlertStyle];
+        [alert runModal];
+
+      }
+
 }
-
-
 -(IBAction)clickOneScoreBtn:(id)sender{
 
     [self.oneScoreBtn setImage:[NSImage imageNamed:@"1star"]];
@@ -115,8 +142,8 @@
     [self.threeScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
     [self.fourScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
     [self.fiveScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
-    score=1;
-    [self.scoreTextField setStringValue: [NSNumber numberWithInt:score]];
+    self.score=1;
+    [self.scoreTextField setStringValue: [NSNumber numberWithFloat:self.score]];
 }
 
 
@@ -126,8 +153,8 @@
     [self.threeScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
     [self.fourScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
     [self.fiveScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
-    score=2;
-      [self.scoreTextField setStringValue: [NSNumber numberWithInt:score]];
+    self.score=2;
+      [self.scoreTextField setStringValue: [NSNumber numberWithInt:self.score]];
 }
 
 -(IBAction)clickThreeScoreBtn:(id)sender{
@@ -136,8 +163,8 @@
     [self.threeScoreBtn setImage:[NSImage imageNamed:@"1star"]];
     [self.fourScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
     [self.fiveScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
-    score=3;
-      [self.scoreTextField setStringValue: [NSNumber numberWithInt:score]];
+    self.score=3;
+      [self.scoreTextField setStringValue: [NSNumber numberWithInt:self.score]];
 }
 
 -(IBAction)clickFourScoreBtn:(id)sender{
@@ -146,8 +173,8 @@
     [self.threeScoreBtn setImage:[NSImage imageNamed:@"1star"]];
     [self.fourScoreBtn setImage:[NSImage imageNamed:@"1star"]];
     [self.fiveScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
-    score=4;
-      [self.scoreTextField setStringValue: [NSNumber numberWithInt:score]];
+    self.score=4;
+      [self.scoreTextField setStringValue: [NSNumber numberWithInt:self.score]];
 }
 
 -(IBAction)clickFiveScoreBtn:(id)sender{
@@ -156,28 +183,17 @@
     [self.threeScoreBtn setImage:[NSImage imageNamed:@"1star"]];
     [self.fourScoreBtn setImage:[NSImage imageNamed:@"1star"]];
     [self.fiveScoreBtn setImage:[NSImage imageNamed:@"1star"]];
-    score=5;
-      [self.scoreTextField setStringValue: [NSNumber numberWithInt:score]];
+    self.score=5;
+      [self.scoreTextField setStringValue: [NSNumber numberWithInt:self.score]];
 }
 
--(NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView{
-    return [[AppDelegate getStaticCommentMutableArray] count];
-}
-
-
--(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
-{
-
-     return [[[AppDelegate getStaticCommentMutableArray] objectAtIndex:row] valueForKey:[tableColumn identifier]];
-
-}
 
 -(IBAction)clickSaveScoreBtn:(id)sender
 {
     BOOL accountState=[AppDelegate getStaticAccountState];
     
     if (accountState==YES) {
-        float newScore=(score+[self.resultScoreLabel.stringValue floatValue])/2;
+        float newScore=(self.score+[self.resultScoreLabel.stringValue floatValue])/2;
         [AppDelegate getStaticMovie].score=newScore;
         
         NSLog(@"%f",[AppDelegate getStaticMovie].score);

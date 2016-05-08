@@ -180,6 +180,11 @@ NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     self.movieDetailViewController=[[MovieDetailViewController alloc]initWithNibName:@"MovieDetailViewController" bundle:nil];
     self.movieDetailView=self.movieDetailViewController.view;
+    //
+    
+     // [self.movieDetailViewController.messageTableView reloadData];
+    
+//
     [self.movieDetailView setFrame:showFrame];
     [self.mainView setHidden:YES];
     [self.window.contentView addSubview:self.movieDetailView];

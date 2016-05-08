@@ -179,8 +179,8 @@
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
-                                    <outlet property="dataSource" destination="-2" id="3vm-Vb-cIT"/>
-                                    <outlet property="delegate" destination="-2" id="ZJP-Lc-fDi"/>
+                                    <outlet property="dataSource" destination="8h9-1T-KI1" id="3VD-4A-RcX"/>
+                                    <outlet property="delegate" destination="8h9-1T-KI1" id="hI6-dC-1DD"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -298,6 +298,7 @@
             <animations/>
             <point key="canvasLocation" x="125" y="298"/>
         </customView>
+        <customObject id="8h9-1T-KI1" customClass="MessageTableViewController"/>
     </objects>
     <resources>
         <image name="1star" width="30.719999313354492" height="29.280000686645508"/>

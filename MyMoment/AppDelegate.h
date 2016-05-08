@@ -41,8 +41,8 @@ static NSInteger staticMovieRow;
 +(BOOL)getStaticAccountState;
 +(BOOL)setStaticAcccountState:(BOOL)newAccountState;
 
-+(NSMutableArray *)getStaticCommentMutableArray;
-+(NSMutableArray *)setStaticCommentMutableArray:(NSMutableArray *)newCommentMutableArray;
+//+(NSMutableArray *)getStaticCommentMutableArray;
+//+(NSMutableArray *)setStaticCommentMutableArray:(NSMutableArray *)newCommentMutableArray;
 
 +(NSMutableArray *)getStaticMovieMutableArray;
 +(NSMutableArray *)setStaticMovieMutableArray:(NSMutableArray *)newMovieMutableArray;
