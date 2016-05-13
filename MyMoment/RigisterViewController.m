@@ -62,6 +62,7 @@
     [appdelegate.mainWindowController.movieView setHidden:YES];
     [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
     [appdelegate.mainWindowController.searchResultViewController.view setHidden:YES];
+    [appdelegate.mainWindowController.musicDetailView setHidden:YES];
     [appdelegate.mainWindowController.window.contentView addSubview:self.registerView];
     
     
@@ -108,13 +109,13 @@
     self.modifyView=self.registerInfoViewController.view;
     NSRect rigsterFrame=NSMakeRect(179, 47.5, 846, 468);
     [self.modifyView setFrame:rigsterFrame];
-        self.registerInfoViewController.accountTextField.stringValue=[AppDelegate getStaticUser].userName;
-        self.registerInfoViewController.ageTextField.stringValue=[AppDelegate getStaticUser].userAge;
-        if ([[AppDelegate getStaticUser].userSex isEqualTo:@"男"]) {
-            [self.registerInfoViewController.sexMatrix selectCellWithTag:1];
+    self.registerInfoViewController.accountTextField.stringValue=[AppDelegate getStaticUser].userName;
+    self.registerInfoViewController.ageTextField.stringValue=[AppDelegate getStaticUser].userAge;
+    if ([[AppDelegate getStaticUser].userSex isEqualTo:@"男"]) {
+        [self.registerInfoViewController.sexMatrix selectCellWithTag:1];
         }
-        else{
-            [self.registerInfoViewController.sexMatrix selectCellWithTag:2];}
+    else{
+        [self.registerInfoViewController.sexMatrix selectCellWithTag:2];}
         self.registerInfoViewController.emailTextField.stringValue=[AppDelegate getStaticUser].userEmailAdress;
         self.registerInfoViewController.phoneTextField.stringValue=[AppDelegate getStaticUser].userPhoneNumber;
         self.registerInfoViewController.passwordTextField.stringValue=[AppDelegate getStaticUser].userPassword;
@@ -125,10 +126,11 @@
     [appdelegate.mainWindowController.mainView setHidden:YES];
     [appdelegate.mainWindowController.musicView setHidden:YES];
     [appdelegate.mainWindowController.movieView setHidden:YES];
-        [appdelegate.mainWindowController.searchResultView setHidden:YES];
+    [appdelegate.mainWindowController.searchResultView setHidden:YES];
     [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
-        [self.favoriteView setHidden:YES];
-        [self.historyView setHidden:YES];
+    [appdelegate.mainWindowController.musicDetailView setHidden:YES];
+    [self.favoriteView setHidden:YES];
+    [self.historyView setHidden:YES];
     [appdelegate.mainWindowController.window.contentView addSubview:self.modifyView];
 
        
@@ -170,6 +172,8 @@
     [appdelegate.mainWindowController.movieView setHidden:YES];
     [appdelegate.mainWindowController.musicView setHidden:YES];
     [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
+    [appdelegate.mainWindowController.musicDetailView setHidden:YES];
+    [self.favoriteListViewController.view setHidden:YES];
     [self.favoriteView setHidden:YES];
     [self.modifyView setHidden:YES];
     [appdelegate.mainWindowController.window.contentView addSubview:self.historyView];

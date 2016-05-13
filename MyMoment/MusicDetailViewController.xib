@@ -7,6 +7,23 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MusicDetailViewController">
             <connections>
+                <outlet property="addToFavoriteBtn" destination="C9l-d9-39N" id="dJl-XV-MTO"/>
+                <outlet property="authorLabel" destination="bUc-ZW-z1q" id="MqI-cx-oWQ"/>
+                <outlet property="fiveScoreBtn" destination="bx4-Hu-DeL" id="uAt-zx-YYS"/>
+                <outlet property="fourScoreBtn" destination="rV8-1n-500" id="qFu-DU-Tpi"/>
+                <outlet property="imageView" destination="UoC-u7-mh9" id="Htt-eV-qmc"/>
+                <outlet property="introductionLabel" destination="AWT-fk-yDI" id="NGo-qf-TiM"/>
+                <outlet property="messageTableView" destination="vn1-gv-XLP" id="01E-mL-M5i"/>
+                <outlet property="messageTextField" destination="N9p-OF-EGP" id="SDZ-J7-UXh"/>
+                <outlet property="nameLabel" destination="V0n-mm-Fkq" id="3KB-u2-aW5"/>
+                <outlet property="oneScoreBtn" destination="beN-9r-Yzj" id="7qT-iR-rTA"/>
+                <outlet property="resultScoreLabel" destination="GjN-JG-bth" id="ryd-U9-vd6"/>
+                <outlet property="resultStarImageView" destination="vqK-JX-2lR" id="7U5-R7-H1J"/>
+                <outlet property="scoreTextField" destination="RyB-nr-g33" id="7ub-W3-PLh"/>
+                <outlet property="styleLabel" destination="JUc-NH-rWD" id="INz-rT-WyB"/>
+                <outlet property="submitMessageBtn" destination="FXC-oT-fqg" id="knS-Mq-EeS"/>
+                <outlet property="threeScoreBtn" destination="VOK-2C-BEb" id="ybG-ed-U0I"/>
+                <outlet property="twoScoreBtn" destination="p76-aV-8Pc" id="nfc-lx-wkY"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -16,17 +33,314 @@
             <rect key="frame" x="0.0" y="0.0" width="846" height="468"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ul0-iM-Tfj">
-                    <rect key="frame" x="379" y="408" width="90" height="17"/>
+                <scrollView fixedFrame="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYD-qc-Ou6">
+                    <rect key="frame" x="0.0" y="0.0" width="846" height="468"/>
+                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="2r4-m0-aMA">
+                        <rect key="frame" x="1" y="1" width="844" height="466"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C6n-CB-ryK">
+                                <rect key="frame" x="0.0" y="387" width="844" height="600"/>
+                                <animations/>
+                            </view>
+                        </subviews>
+                        <animations/>
+                    </clipView>
                     <animations/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Let it go" id="p51-w2-L67">
+                    <scroller key="horizontalScroller" hidden="YES" canDrawConcurrently="YES" verticalHuggingPriority="750" horizontal="YES" id="OC8-Iw-SMY">
+                        <rect key="frame" x="-100" y="-100" width="829" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" canDrawConcurrently="YES" verticalHuggingPriority="750" doubleValue="0.9850746268656716" horizontal="NO" id="g6x-un-jx7">
+                        <rect key="frame" x="-100" y="-100" width="15" height="466"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </scroller>
+                </scrollView>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C9l-d9-39N">
+                    <rect key="frame" x="764" y="371" width="35" height="48"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" title="收藏" bezelStyle="shadowlessSquare" image="Heart" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="lqw-DE-XLq">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickAddToFavoriteBtn:" target="-2" id="ljq-Eu-Gfq"/>
+                    </connections>
+                </button>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UoC-u7-mh9">
+                    <rect key="frame" x="32" y="229" width="332" height="219"/>
+                    <animations/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="proportionallyDown" image="Let it go" id="hUz-a2-QYf"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V0n-mm-Fkq">
+                    <rect key="frame" x="405" y="417" width="128" height="20"/>
+                    <animations/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Let It Go" id="vuW-4Z-KVZ">
+                        <font key="font" size="16" name=".PingFangSC-Semibold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JUc-NH-rWD">
+                    <rect key="frame" x="405" y="390" width="30" height="17"/>
+                    <animations/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="喜剧" id="One-Nr-YEJ">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bUc-ZW-z1q">
+                    <rect key="frame" x="405" y="361" width="95" height="17"/>
+                    <animations/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="周润发、刘德华" id="2LY-jS-UK1">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vqK-JX-2lR">
+                    <rect key="frame" x="590" y="386" width="138" height="33"/>
+                    <animations/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="proportionallyDown" image="5star" id="hUq-bl-HVG"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AWT-fk-yDI">
+                    <rect key="frame" x="405" y="238" width="380" height="104"/>
+                    <animations/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="简介" id="OTI-FE-D5u">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N9p-OF-EGP" userLabel="MessageTextField">
+                    <rect key="frame" x="98" y="117" width="625" height="47"/>
+                    <animations/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" drawsBackground="YES" id="CfV-Hp-coO">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDf-FI-ly3">
+                    <rect key="frame" x="98" y="16" width="625" height="93"/>
+                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="g8S-AV-uRA">
+                        <rect key="frame" x="0.0" y="0.0" width="625" height="93"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="vn1-gv-XLP">
+                                <rect key="frame" x="0.0" y="0.0" width="625" height="93"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <animations/>
+                                <size key="intercellSpacing" width="3" height="5"/>
+                                <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn identifier="sender" width="154" minWidth="40" maxWidth="1000" id="V8k-X4-7UN">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" continuous="YES" title="Text Cell" id="Hns-ia-7i5">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <prototypeCellViews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="YR8-3E-4VS">
+                                                <rect key="frame" x="1" y="2" width="154" height="17"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <animations/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="OX0-LF-eiW">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                    <tableColumn identifier="comment" width="295" minWidth="10" maxWidth="3.4028234663852886e+38" id="0jZ-ZH-T68">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="87q-pv-x0w">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <prototypeCellViews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="IcG-6Z-amN">
+                                                <rect key="frame" x="158" y="2" width="295" height="17"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <animations/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="yyL-Ut-Zks">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                    <tableColumn identifier="time" width="167" minWidth="10" maxWidth="3.4028234663852886e+38" id="EXd-Rw-0pV">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="edU-KG-Z7B">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <prototypeCellViews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="rhb-tn-vzC">
+                                                <rect key="frame" x="456" y="2" width="167" height="17"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <animations/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="PFA-2b-w5N">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="-2" id="OLc-hx-cp9"/>
+                                    <outlet property="delegate" destination="-2" id="gy9-mB-bgb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </clipView>
+                    <animations/>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="g45-hl-JLR">
+                        <rect key="frame" x="0.0" y="-15" width="0.0" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="6tb-E1-G2Z">
+                        <rect key="frame" x="-15" y="-8" width="15" height="0.0"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </scroller>
+                </scrollView>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p76-aV-8Pc" userLabel="Two">
+                    <rect key="frame" x="128" y="183" width="32" height="32"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="1starEmpty" imagePosition="overlaps" alignment="center" alternateImage="1star" imageScaling="proportionallyUpOrDown" inset="2" id="rjZ-ad-bsd">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickTwoScoreBtn:" target="-2" id="TB8-Gi-YLn"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bx4-Hu-DeL" userLabel="Five">
+                    <rect key="frame" x="230" y="183" width="32" height="32"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="1starEmpty" imagePosition="only" alignment="center" alternateImage="1star" imageScaling="proportionallyUpOrDown" inset="2" id="KgZ-V7-5RW">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickFiveScoreBtn:" target="-2" id="hju-25-A8o"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="beN-9r-Yzj" userLabel="One">
+                    <rect key="frame" x="96" y="183" width="32" height="32"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="1starEmpty" imagePosition="only" alignment="center" alternateImage="1star" imageScaling="proportionallyUpOrDown" inset="2" id="awr-kR-HsW">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickOneScoreBtn:" target="-2" id="H0j-dG-KSB"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rV8-1n-500" userLabel="Four">
+                    <rect key="frame" x="196" y="183" width="32" height="32"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="1starEmpty" imagePosition="only" alignment="center" alternateImage="1star" imageScaling="proportionallyUpOrDown" inset="2" id="dhk-7F-Xsg">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickFourScoreBtn:" target="-2" id="KOZ-oR-KMs"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VOK-2C-BEb" userLabel="Three">
+                    <rect key="frame" x="162" y="183" width="32" height="32"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="1starEmpty" imagePosition="only" alignment="center" alternateImage="1star" imageScaling="proportionallyUpOrDown" inset="2" id="nyK-gn-JoD">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickThreeScoreBtn:" target="-2" id="V2R-sN-4eH"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RyB-nr-g33" userLabel="Score">
+                    <rect key="frame" x="262" y="187" width="37" height="18"/>
+                    <animations/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="QZg-Zy-cgX">
+                        <font key="font" metaFont="systemBold" size="14"/>
+                        <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GjN-JG-bth">
+                    <rect key="frame" x="636" y="359" width="54" height="20"/>
+                    <animations/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="5.0" id="eqN-rQ-qx9">
+                        <font key="font" size="16" name=".AppleSystemUIFontBlack"/>
+                        <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FXC-oT-fqg" userLabel="MessageBtn">
+                    <rect key="frame" x="731" y="120" width="37" height="37"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="message" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="rcE-Ch-okT">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickSubmitMessageBtn:" target="-2" id="n7E-pH-WLg"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kCm-ot-7Yk">
+                    <rect key="frame" x="294" y="182" width="51" height="35"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" title="打分" bezelStyle="shadowlessSquare" image="Confirm" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="RMC-hh-Udd">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickSaveScoreBtn:" target="-2" id="xDf-BL-1Ps"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
         </customView>
     </objects>
+    <resources>
+        <image name="1star" width="30.719999313354492" height="29.280000686645508"/>
+        <image name="1starEmpty" width="30.719999313354492" height="29.280000686645508"/>
+        <image name="5star" width="167.52000427246094" height="29.280000686645508"/>
+        <image name="Confirm" width="128" height="128"/>
+        <image name="Heart" width="128" height="128"/>
+        <image name="Let it go" width="1205.7366943359375" height="678.2901611328125"/>
+        <image name="message" width="128" height="128"/>
+    </resources>
 </document>

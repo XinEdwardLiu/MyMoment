@@ -11,6 +11,6 @@
 @interface FavoriteListViewController : NSViewController<NSTableViewDataSource,NSTableViewDelegate>
 
 @property IBOutlet NSTableView *favoriteListTableView;
-//@property IBOutlet NSButton *deleteBtn;
+@property IBOutlet NSTableView *musicFavoriteListTableView;
 
 @end

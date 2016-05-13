@@ -10,7 +10,6 @@
 
 
 
-
 @interface AppDelegate ()
 //@property (strong) IBOutlet MainWindowController* mainWindowController;
 @property (weak) IBOutlet NSWindow *window;
@@ -65,26 +64,26 @@
     NSMutableArray *commentMutableArray19=[[NSMutableArray alloc]initWithObjects:firstMessage, nil];
     NSMutableArray *commentMutableArray20=[[NSMutableArray alloc]initWithObjects:firstMessage, nil];
     
-    Music *music1=[[Music alloc]initWithName:@"Let It Go" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray1 WithScore:5];
-    Music *music2=[[Music alloc]initWithName:@"You are beautiful" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray2 WithScore:5];
-    Music *music3=[[Music alloc]initWithName:@"Hero" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray3 WithScore:5];
-    Music *music4=[[Music alloc]initWithName:@"The World" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray4 WithScore:5];
-    Music *music5=[[Music alloc]initWithName:@"You rise me up" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray5 WithScore:5];
-    Music *music6=[[Music alloc]initWithName:@"Apologize" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray6 WithScore:5];
-    Music *music7=[[Music alloc]initWithName:@"Califonia Hotel" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray7 WithScore:5];
-    Music *music8=[[Music alloc]initWithName:@"My Love" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray8 WithScore:5];
-    Music *music9=[[Music alloc]initWithName:@"Sunshine" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray9 WithScore:5];
-    Music *music10=[[Music alloc]initWithName:@"Friend" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray10 WithScore:5];
-    Music *music11=[[Music alloc]initWithName:@"Never Give Up" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray11 WithScore:5];
-    Music *music12=[[Music alloc]initWithName:@"Think" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray12 WithScore:5];
-    Music *music13=[[Music alloc]initWithName:@"Impossible" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray13 WithScore:5];
-    Music *music14=[[Music alloc]initWithName:@"Worry" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray14 WithScore:5];
-    Music *music15=[[Music alloc]initWithName:@"Littel Star" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray15 WithScore:5];
-    Music *music16=[[Music alloc]initWithName:@"Ghost" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray16 WithScore:5];
-    Music *music17=[[Music alloc]initWithName:@"Happiness" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray17 WithScore:5];
-    Music *music18=[[Music alloc]initWithName:@"Thankful" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray18 WithScore:5];
-    Music *music19=[[Music alloc]initWithName:@"God is a girl" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray19 WithScore:5];
-    Music *music20=[[Music alloc]initWithName:@"Heaven" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray20 WithScore:5];
+    Music *music1=[[Music alloc]initWithName:@"Let It Go" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray1 WithScore:5 WithIsFavorite:NO];
+    Music *music2=[[Music alloc]initWithName:@"You are beautiful" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray2 WithScore:5 WithIsFavorite:NO];
+    Music *music3=[[Music alloc]initWithName:@"Hero" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray3 WithScore:4.5 WithIsFavorite:NO];
+    Music *music4=[[Music alloc]initWithName:@"The World" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray4 WithScore:5 WithIsFavorite:NO];
+    Music *music5=[[Music alloc]initWithName:@"You rise me up" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray5 WithScore:4.5 WithIsFavorite:NO];
+    Music *music6=[[Music alloc]initWithName:@"Apologize" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray6 WithScore:5 WithIsFavorite:NO];
+    Music *music7=[[Music alloc]initWithName:@"Califonia Hotel" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray7 WithScore:5 WithIsFavorite:NO];
+    Music *music8=[[Music alloc]initWithName:@"My Love" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray8 WithScore:5 WithIsFavorite:NO];
+    Music *music9=[[Music alloc]initWithName:@"Sunshine" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray9 WithScore:4 WithIsFavorite:NO];
+    Music *music10=[[Music alloc]initWithName:@"Friend" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray10 WithScore:4 WithIsFavorite:NO];
+    Music *music11=[[Music alloc]initWithName:@"Never Give Up" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray11 WithScore:4.5 WithIsFavorite:NO];
+    Music *music12=[[Music alloc]initWithName:@"Think" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray12 WithScore:5 WithIsFavorite:NO];
+    Music *music13=[[Music alloc]initWithName:@"Impossible" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray13 WithScore:3 WithIsFavorite:NO];
+    Music *music14=[[Music alloc]initWithName:@"Worry" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray14 WithScore:3 WithIsFavorite:NO];
+    Music *music15=[[Music alloc]initWithName:@"Littel Star" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray15 WithScore:3.5 WithIsFavorite:NO];
+    Music *music16=[[Music alloc]initWithName:@"Ghost" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray16 WithScore:4 WithIsFavorite:NO];
+    Music *music17=[[Music alloc]initWithName:@"Happiness" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray17 WithScore:4 WithIsFavorite:NO];
+    Music *music18=[[Music alloc]initWithName:@"Thankful" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray18 WithScore:5 WithIsFavorite:NO];
+    Music *music19=[[Music alloc]initWithName:@"God is a girl" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray19 WithScore:2 WithIsFavorite:NO];
+    Music *music20=[[Music alloc]initWithName:@"Heaven" WithImage:[NSImage imageNamed:@"Let it go"] WithTypes:@"欧美" WithAuthor:@"Edward" WithIntroduction:@"歌词" WithCommentMutableArray:commentMutableArray20 WithScore:4 WithIsFavorite:NO];
     
     NSMutableArray *musicMutableArray=[[NSMutableArray alloc]initWithObjects:music1,music2,music3,music4,music5,music6,music7,music8,music9,music10,music11,music12,music13,music14,music15,music16,music17,music18,music19,music20, nil];
     [AppDelegate setStaticMusicMutableArray:musicMutableArray];
@@ -154,15 +153,6 @@
     [AppDelegate setStaticAcccountState:accountState];
 }
 
-//- (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
-   
-//    NSMutableArray *tempUserMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticUserMutableArray]];
-//    UserCoreData *userCoreData=[[UserCoreData alloc]initWithEntity:[NSEntityDescription entityForName:@"UserCoreData" inManagedObjectContext:[self managedObjectContext]] insertIntoManagedObjectContext:self.managedObjectContext];
-//    userCoreData.userArrayData=[NSKeyedArchiver archivedDataWithRootObject:tempUserMutableArray];
-//    NSError *error=nil;
-//    [self.managedObjectContext save:&error];
-//}
 
 
 +(BOOL)getStaticAccountState{
@@ -174,15 +164,6 @@
     staticAccountState=newAccountState;
     return staticAccountState;
 }
-
-//+(NSMutableArray *)getStaticCommentMutableArray{
-//    return staticCommentMutableArray;
-//}
-//+(NSMutableArray *)setStaticCommentMutableArray:(NSMutableArray *)newCommentMutableArray{
-//    staticCommentMutableArray=newCommentMutableArray;
-//    return staticCommentMutableArray;
-//}
-
 
 +(NSMutableArray *)getStaticMovieMutableArray{
     return staticMovieMutableArray;
@@ -215,6 +196,14 @@
 +(Movie *)setStaticMovie:(Movie *)newMovie{
     staticMovie=newMovie;
     return staticMovie;
+}
+
++(Music *)getStaticMusic{
+    return staticMusic;
+}
++(Music *)setStaticMusic:(Music *)newMusic{
+    staticMusic=newMusic;
+    return staticMusic;
 }
 
 +(Movie *)getStaticScoreRankingMovie{
@@ -260,6 +249,13 @@
     return staticFavoriteListMutableArray;
 }
 
++(NSMutableArray *)getStaticMusicFavoriteListMutableArray{
+    return  staticMusicFavoriteListMutableArray;
+}
++(NSMutableArray *)setstaticMusicFavoriteListMutableArray:(NSMutableArray *)newMusicFavoriteMutableArray{
+    staticMusicFavoriteListMutableArray=newMusicFavoriteMutableArray;
+    return staticMusicFavoriteListMutableArray;
+}
 
 +(NSMutableArray *)getStaticHistoryListMutableArray{
     return staticHistoryListMutableArray;
@@ -269,12 +265,28 @@
     return staticHistoryListMutableArray;
 }
 
++(NSMutableArray *)getStaticMusicHistoryListMutableArray{
+    return staticMusicHistoryListMutableArray;
+}
++(NSMutableArray *)setstaticMusicHistoryListMutableArray:(NSMutableArray *)newMusicHistoryListMutableArray{
+    staticMusicHistoryListMutableArray=newMusicHistoryListMutableArray;
+    return staticMusicHistoryListMutableArray;
+}
+
 +(NSInteger)getStaticMovieRow{
     return staticMovieRow;
 }
 +(NSInteger)setStaticMovieRow:(NSInteger)row{
     staticMovieRow=row;
     return staticMovieRow;
+}
+
++(NSInteger)getStaticMusicRow{
+    return staticMusicRow;
+}
++(NSInteger)setStaticMusicRow:(NSInteger)row{
+    staticMusicRow=row;
+    return staticMusicRow;
 }
 
 #pragma mark - Core Data stack

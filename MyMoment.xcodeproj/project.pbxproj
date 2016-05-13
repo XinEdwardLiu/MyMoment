@@ -46,6 +46,9 @@
 		BD83948F1CD9AB1B00D44802 /* NumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = BD83948E1CD9AB1B00D44802 /* NumberField.m */; };
 		BD9779A61CB7EE9B00319214 /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9779A41CB7EE9B00319214 /* MovieDetailViewController.m */; };
 		BD9779A71CB7EE9B00319214 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD9779A51CB7EE9B00319214 /* MovieDetailViewController.xib */; };
+		BDB637B71CE678580083FBBB /* MusicFavoriteListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB637B61CE678580083FBBB /* MusicFavoriteListTableViewController.m */; };
+		BDB637BA1CE67CBE0083FBBB /* FavoriteMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB637B91CE67CBE0083FBBB /* FavoriteMusic.m */; };
+		BDF33FEA1CE654B700B1FA43 /* MusicHistoryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF33FE91CE654B700B1FA43 /* MusicHistoryListTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +116,12 @@
 		BD9779A31CB7EE9B00319214 /* MovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailViewController.h; sourceTree = "<group>"; };
 		BD9779A41CB7EE9B00319214 /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
 		BD9779A51CB7EE9B00319214 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
+		BDB637B51CE678580083FBBB /* MusicFavoriteListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicFavoriteListTableViewController.h; sourceTree = "<group>"; };
+		BDB637B61CE678580083FBBB /* MusicFavoriteListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicFavoriteListTableViewController.m; sourceTree = "<group>"; };
+		BDB637B81CE67CBE0083FBBB /* FavoriteMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteMusic.h; sourceTree = "<group>"; };
+		BDB637B91CE67CBE0083FBBB /* FavoriteMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteMusic.m; sourceTree = "<group>"; };
+		BDF33FE81CE654B700B1FA43 /* MusicHistoryListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicHistoryListTableViewController.h; sourceTree = "<group>"; };
+		BDF33FE91CE654B700B1FA43 /* MusicHistoryListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicHistoryListTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,12 +208,18 @@
 				BD55C30C1CC1BE1100610137 /* MusicDetailViewController.xib */,
 				BD6C0B181CCD5414001704B4 /* HistoryListViewController.h */,
 				BD6C0B191CCD5414001704B4 /* HistoryListViewController.m */,
+				BDF33FE81CE654B700B1FA43 /* MusicHistoryListTableViewController.h */,
+				BDF33FE91CE654B700B1FA43 /* MusicHistoryListTableViewController.m */,
 				BD6C0B1A1CCD5414001704B4 /* HistoryListViewController.xib */,
 				BD6C0B1D1CCD561B001704B4 /* FavoriteListViewController.h */,
 				BD6C0B1E1CCD561B001704B4 /* FavoriteListViewController.m */,
+				BDB637B51CE678580083FBBB /* MusicFavoriteListTableViewController.h */,
+				BDB637B61CE678580083FBBB /* MusicFavoriteListTableViewController.m */,
 				BD6C0B1F1CCD561B001704B4 /* FavoriteListViewController.xib */,
 				BD6C0B2B1CCEB2C3001704B4 /* FavoriteMovie.h */,
 				BD6C0B2C1CCEB2C3001704B4 /* FavoriteMovie.m */,
+				BDB637B81CE67CBE0083FBBB /* FavoriteMusic.h */,
+				BDB637B91CE67CBE0083FBBB /* FavoriteMusic.m */,
 				BD55C3151CC3E18E00610137 /* Movie.h */,
 				BD55C3161CC3E18E00610137 /* Movie.m */,
 				BD55C3181CC3E1A900610137 /* Music.h */,
@@ -305,15 +320,18 @@
 				BD55C3141CC3C9A100610137 /* MainMusicTableViewController.m in Sources */,
 				BD7652CE1CDFBED1009148E6 /* SearchResultViewController.m in Sources */,
 				BD6C0B201CCD561B001704B4 /* FavoriteListViewController.m in Sources */,
+				BDF33FEA1CE654B700B1FA43 /* MusicHistoryListTableViewController.m in Sources */,
 				BD83948B1CD79AD000D44802 /* UserCoreData.m in Sources */,
 				BD6C0B171CCBC573001704B4 /* User.m in Sources */,
 				BD83948F1CD9AB1B00D44802 /* NumberField.m in Sources */,
 				BD9779A61CB7EE9B00319214 /* MovieDetailViewController.m in Sources */,
 				BD55C31A1CC3E1A900610137 /* Music.m in Sources */,
 				BD6C0B1B1CCD5414001704B4 /* HistoryListViewController.m in Sources */,
+				BDB637B71CE678580083FBBB /* MusicFavoriteListTableViewController.m in Sources */,
 				BD6C0B2D1CCEB2C3001704B4 /* FavoriteMovie.m in Sources */,
 				BD55C30D1CC1BE1100610137 /* MusicDetailViewController.m in Sources */,
 				BD11A1951C9A59D400087582 /* MyMoment.xcdatamodeld in Sources */,
+				BDB637BA1CE67CBE0083FBBB /* FavoriteMusic.m in Sources */,
 				BD11A1921C9A59D400087582 /* main.m in Sources */,
 				BD11A1AC1C9FDD3E00087582 /* RigisterViewController.m in Sources */,
 				BD3769411CCA98BB00392C63 /* MovieAllTableViewController.m in Sources */,

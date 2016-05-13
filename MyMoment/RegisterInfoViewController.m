@@ -90,7 +90,6 @@
 
 -(void)saveNewUser{
     AppDelegate *appdelegate=[NSApp delegate];
-    
     NSMutableArray *tempUserMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticUserMutableArray]];
     UserCoreData *userCoreData=[[UserCoreData alloc]initWithEntity:[NSEntityDescription entityForName:@"UserCoreData" inManagedObjectContext:[appdelegate managedObjectContext]] insertIntoManagedObjectContext:appdelegate.managedObjectContext];
     userCoreData.userArrayData=[NSKeyedArchiver archivedDataWithRootObject:tempUserMutableArray];
@@ -101,11 +100,8 @@
 -(void)clearUserCoreData{
     AppDelegate *appdelegate=[NSApp delegate];
     NSFetchRequest *request=[NSFetchRequest fetchRequestWithEntityName:@"UserCoreData"];
-    
-    
     NSError *error = nil;
     NSArray *result = [appdelegate.managedObjectContext executeFetchRequest:request error:&error];
-    
     for (NSManagedObject *user in result) {
         [appdelegate.managedObjectContext deleteObject:user];
     }

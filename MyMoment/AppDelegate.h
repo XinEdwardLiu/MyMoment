@@ -22,13 +22,17 @@ static NSMutableArray *staticMovieMutableArray;
 static NSMutableArray *staticMusicMutableArray;
 static NSMutableArray *staticMovieScoreRankingMutableArray;
 static Movie *staticMovie;
+static Music *staticMusic;
 static Movie *staticScoreRankingMovie;
 static User *staticUser;
 static NSInteger staticUserRow;
 static NSMutableArray *staticUserMutableArray;
 static NSMutableArray *staticFavoriteListMutableArray;
+static NSMutableArray *staticMusicFavoriteListMutableArray;
 static NSMutableArray *staticHistoryListMutableArray;
+static NSMutableArray *staticMusicHistoryListMutableArray;
 static NSInteger staticMovieRow;
+static NSInteger staticMusicRow;
 
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
@@ -56,6 +60,9 @@ static NSInteger staticMovieRow;
 +(Movie *)getStaticMovie;
 +(Movie *)setStaticMovie:(Movie *)newMovie;
 
++(Music *)getStaticMusic;
++(Music *)setStaticMusic:(Music *)newMusic;
+
 +(Movie *)getStaticScoreRankingMovie;
 +(Movie *)setStaticScoreRankingMovie:(Movie *)newMovie;
 
@@ -71,11 +78,20 @@ static NSInteger staticMovieRow;
 +(NSMutableArray *)getStaticFavoriteListMutableArray;
 +(NSMutableArray *)setstaticFavoriteListMutableArray:(NSMutableArray *)newFavoriteMutableArray;
 
++(NSMutableArray *)getStaticMusicFavoriteListMutableArray;
++(NSMutableArray *)setstaticMusicFavoriteListMutableArray:(NSMutableArray *)newMusicFavoriteMutableArray;
+
 +(NSMutableArray *)getStaticHistoryListMutableArray;
 +(NSMutableArray *)setstaticHistoryListMutableArray:(NSMutableArray *)newHistoryListMutableArray;
 
++(NSMutableArray *)getStaticMusicHistoryListMutableArray;
++(NSMutableArray *)setstaticMusicHistoryListMutableArray:(NSMutableArray *)newMusicHistoryListMutableArray;
+
 +(NSInteger)getStaticMovieRow;
 +(NSInteger)setStaticMovieRow:(NSInteger)row;
+
++(NSInteger)getStaticMusicRow;
++(NSInteger)setStaticMusicRow:(NSInteger)row;
 
 @end
 

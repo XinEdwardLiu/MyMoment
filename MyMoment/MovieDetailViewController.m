@@ -96,10 +96,7 @@
             [self.messageTableView reloadData];
             
             NSMutableArray *movieTableListMuTableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticMovieMutableArray]];
-            
-            [self.selectedMovie.commentMutableArray removeAllObjects];
-            [self.selectedMovie.commentMutableArray addObject:self.messageMutableArray];
-            
+            [self.selectedMovie.commentMutableArray setArray:self.messageMutableArray];
             [movieTableListMuTableArray removeObjectAtIndex:[AppDelegate getStaticMovieRow]];
             [movieTableListMuTableArray insertObject:self.selectedMovie atIndex:[AppDelegate getStaticMovieRow]];
             [AppDelegate setStaticMovieMutableArray:movieTableListMuTableArray];
@@ -151,7 +148,7 @@
     [self.fourScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
     [self.fiveScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
     self.score=1;
-    [self.scoreTextField setStringValue: [NSNumber numberWithFloat:self.score]];
+    [self.scoreTextField setStringValue: [[NSNumber numberWithFloat:self.score] stringValue]];
 }
 
 
@@ -162,7 +159,7 @@
     [self.fourScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
     [self.fiveScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
     self.score=2;
-      [self.scoreTextField setStringValue: [NSNumber numberWithInt:self.score]];
+      [self.scoreTextField setStringValue: [[NSNumber numberWithInt:self.score] stringValue]];
 }
 
 -(IBAction)clickThreeScoreBtn:(id)sender{
@@ -172,7 +169,7 @@
     [self.fourScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
     [self.fiveScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
     self.score=3;
-      [self.scoreTextField setStringValue: [NSNumber numberWithInt:self.score]];
+      [self.scoreTextField setStringValue: [[NSNumber numberWithInt:self.score] stringValue]];
 }
 
 -(IBAction)clickFourScoreBtn:(id)sender{
@@ -182,7 +179,7 @@
     [self.fourScoreBtn setImage:[NSImage imageNamed:@"1star"]];
     [self.fiveScoreBtn setImage:[NSImage imageNamed:@"1starEmpty"]];
     self.score=4;
-      [self.scoreTextField setStringValue: [NSNumber numberWithInt:self.score]];
+      [self.scoreTextField setStringValue: [[NSNumber numberWithInt:self.score] stringValue]];
 }
 
 -(IBAction)clickFiveScoreBtn:(id)sender{
@@ -192,7 +189,7 @@
     [self.fourScoreBtn setImage:[NSImage imageNamed:@"1star"]];
     [self.fiveScoreBtn setImage:[NSImage imageNamed:@"1star"]];
     self.score=5;
-      [self.scoreTextField setStringValue: [NSNumber numberWithInt:self.score]];
+      [self.scoreTextField setStringValue: [[NSNumber numberWithInt:self.score] stringValue]];
 }
 
 

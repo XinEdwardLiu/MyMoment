@@ -9,6 +9,7 @@
 #import "HistoryListViewController.h"
 #import "AppDelegate.h"
 #import "MovieDetailViewController.h"
+#import "MusicDetailViewController.h"
 #import "Movie.h"
 
 @interface HistoryListViewController ()
@@ -54,7 +55,7 @@
     }
     if ([tableColumn.identifier isEqualTo:@"number"]) {
         NSTextField *numberLabel=[tableView makeViewWithIdentifier:@"number" owner:self];
-        numberLabel.stringValue=[NSNumber numberWithInteger:row+1];
+        numberLabel.stringValue=[[NSNumber numberWithInteger:row+1] stringValue];
         return numberLabel;
     }
 
@@ -71,11 +72,20 @@
     [appdelegate.mainWindowController.movieDetailView setFrame:showFrame];
     [self.view setHidden:YES];
     [appdelegate.mainWindowController.window.contentView addSubview:appdelegate.mainWindowController.movieDetailView];
-    
-    
-
-
-
+    [appdelegate.mainWindowController.registerViewController.favoriteView setHidden:YES];
 }
+
+-(IBAction)clickMusicHistoryListTableView:(id)sender{
+    Music *tempMusic=[[AppDelegate getStaticMusicHistoryListMutableArray]objectAtIndex:self.musicHistoryListTableView.selectedRow];
+    [AppDelegate setStaticMusic:tempMusic];
+    AppDelegate *appdelegate=[NSApp delegate];
+    NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
+    appdelegate.mainWindowController.musicDetailViewController=[[MusicDetailViewController alloc]initWithNibName:@"MusicDetailViewController" bundle:nil];
+    appdelegate.mainWindowController.musicDetailView=appdelegate.mainWindowController.musicDetailViewController.view;
+    [appdelegate.mainWindowController.musicDetailView setFrame:showFrame];
+    [self.view setHidden:YES];
+    [appdelegate.mainWindowController.window.contentView addSubview:appdelegate.mainWindowController.musicDetailView];
+}
+
 
 @end
