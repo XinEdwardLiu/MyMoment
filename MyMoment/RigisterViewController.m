@@ -61,7 +61,8 @@
     [appdelegate.mainWindowController.musicView setHidden:YES];
     [appdelegate.mainWindowController.movieView setHidden:YES];
     [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
-[appdelegate.mainWindowController.window.contentView addSubview:self.registerView];
+    [appdelegate.mainWindowController.searchResultViewController.view setHidden:YES];
+    [appdelegate.mainWindowController.window.contentView addSubview:self.registerView];
     
     
 }
@@ -124,6 +125,7 @@
     [appdelegate.mainWindowController.mainView setHidden:YES];
     [appdelegate.mainWindowController.musicView setHidden:YES];
     [appdelegate.mainWindowController.movieView setHidden:YES];
+        [appdelegate.mainWindowController.searchResultView setHidden:YES];
     [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
         [self.favoriteView setHidden:YES];
         [self.historyView setHidden:YES];

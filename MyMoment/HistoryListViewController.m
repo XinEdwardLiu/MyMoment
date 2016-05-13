@@ -63,7 +63,7 @@
 
 -(IBAction)clickHistoryListTableView:(id)sender{
     Movie *tempMovie=[[AppDelegate getStaticHistoryListMutableArray]objectAtIndex:self.historyListTableView.selectedRow];
-    
+    [AppDelegate setStaticMovie:tempMovie];
     AppDelegate *appdelegate=[NSApp delegate];
     NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     appdelegate.mainWindowController.movieDetailViewController=[[MovieDetailViewController alloc]initWithNibName:@"MovieDetailViewController" bundle:nil];

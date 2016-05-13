@@ -24,6 +24,7 @@
                 <outlet property="musicImageBtn" destination="3wO-cj-6da" id="bZs-HR-gv1"/>
                 <outlet property="musicScoreRankingTableView" destination="mZ4-Zi-0bn" id="fwO-Fa-t0L"/>
                 <outlet property="musicScrollView" destination="BfA-0u-hrC" id="ALb-ub-ntO"/>
+                <outlet property="searchField" destination="TNq-U1-sn8" id="nKS-vg-KCW"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -77,7 +78,7 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Main" identifier="1" id="HyQ-Kg-7nQ" userLabel="Main">
-                                <view key="view" id="oUm-Kn-FLi">
+                                <view key="view" ambiguous="YES" id="oUm-Kn-FLi">
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="30" horizontalPageScroll="10" verticalLineScroll="30" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lK4-mv-d5r">
@@ -295,7 +296,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Moive" identifier="2" id="MmW-dJ-lrK" userLabel="Movie">
-                                <view key="view" ambiguous="YES" id="9xu-rG-urV">
+                                <view key="view" id="9xu-rG-urV">
                                     <rect key="frame" x="0.0" y="0.0" width="846" height="468"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -314,12 +315,12 @@
                                             </clipView>
                                             <animations/>
                                             <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="HaJ-uK-QET">
-                                                <rect key="frame" x="1" y="452" width="829" height="15"/>
+                                                <rect key="frame" x="1" y="1" width="0.0" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <animations/>
                                             </scroller>
                                             <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="JTB-Nl-YVp">
-                                                <rect key="frame" x="830" y="1" width="15" height="451"/>
+                                                <rect key="frame" x="1" y="1" width="15" height="0.0"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <animations/>
                                             </scroller>
@@ -742,13 +743,16 @@
                         </tabViewItems>
                     </tabView>
                     <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TNq-U1-sn8">
-                        <rect key="frame" x="810" y="533" width="139" height="22"/>
+                        <rect key="frame" x="804" y="538" width="154" height="22"/>
                         <animations/>
                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" recentsAutosaveName="" id="kSL-Qz-yhM">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </searchFieldCell>
+                        <connections>
+                            <action selector="clickSearchField:" target="-2" id="PwW-Gh-FQX"/>
+                        </connections>
                     </searchField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1P3-7e-yOp">
                         <rect key="frame" x="424" y="517" width="176" height="57"/>

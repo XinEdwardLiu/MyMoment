@@ -18,20 +18,15 @@
 @implementation MovieDetailViewController
 -(void)viewWillAppear{
     //[self.messageTableView reloadData];
-   
-}
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do view setup here.
-    Movie *selectedMovie=[AppDelegate getStaticMovie];
+    self.selectedMovie=[AppDelegate getStaticMovie];
     
-    self.nameLabel.stringValue=[selectedMovie valueForKey:@"name"];
-    self.styleLabel.stringValue=[selectedMovie valueForKey:@"types"];
-    self.authorLabel.stringValue=[selectedMovie valueForKey:@"author"];
-    self.introductionLabel.stringValue=[selectedMovie valueForKey:@"introduction"];
-    self.resultScoreLabel.stringValue=[selectedMovie valueForKey:@"score"];
+    self.nameLabel.stringValue=[self.selectedMovie valueForKey:@"name"];
+    self.styleLabel.stringValue=[self.selectedMovie valueForKey:@"types"];
+    self.authorLabel.stringValue=[self.selectedMovie valueForKey:@"author"];
+    self.introductionLabel.stringValue=[self.selectedMovie valueForKey:@"introduction"];
+    self.resultScoreLabel.stringValue=[self.selectedMovie valueForKey:@"score"];
     
-    self.score=[[selectedMovie valueForKey:@"score"] floatValue];
+    self.score=[[self.selectedMovie valueForKey:@"score"] floatValue];
     
     NSImage *scoreStarImage;
     
@@ -52,7 +47,8 @@
     }
     [self.resultStarImageView setImage:scoreStarImage];
     
-    self.messageMutableArray=[[NSMutableArray alloc]initWithArray:selectedMovie.commentMutableArray];
+    self.messageMutableArray=[[NSMutableArray alloc]initWithArray:self.selectedMovie.commentMutableArray];
+    [self.messageTableView reloadData];
     //[AppDelegate setStaticCommentMutableArray:[staticMovie valueForKey:@"commentMutableArray"]];
     
     if ([AppDelegate getStaticAccountState]==NO) {
@@ -63,12 +59,14 @@
         [self.addToFavoriteBtn setHidden:NO];
     }
     
-    [self.messageTableView reloadData];
-   // NSLog(@"%@",self.messageMutableArray);
-   // NSLog(@"%@",[[AppDelegate getStaticMovie] valueForKey:@"name"]);
-   // NSLog(@"%@",[[[[AppDelegate getStaticMovie] valueForKey:@"commentMutableArray"] objectAtIndex:0] valueForKey:@"comment"]);
+   
+   
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do view setup here.
+
     
-    NSLog(@"%@",[[[AppDelegate getStaticMovieMutableArray] objectAtIndex:0] valueForKey:@"commentMutableArray"]);
    }
 
 -(IBAction)clickSubmitMessageBtn:(id)sender{
@@ -93,33 +91,20 @@
 
             self.message=self.messageTextField.stringValue;
             Message *temperMessage=[[Message alloc]initWithSender:temperSender WithComment:self.message WithTime:temperTime];
-            //[self.messageMutableArray addObject:temperMessage];
-            [self.messageMutableArray addObject:temperMessage];
+            [self.messageMutableArray insertObject:temperMessage atIndex:0];
              NSLog(@"%@",self.messageMutableArray);
             [self.messageTableView reloadData];
             
             NSMutableArray *movieTableListMuTableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticMovieMutableArray]];
-            Movie *tempMovie=[movieTableListMuTableArray objectAtIndex:[AppDelegate getStaticMovieRow]];
-            [tempMovie.commentMutableArray removeAllObjects];
-            [tempMovie.commentMutableArray addObject:self.messageMutableArray];
-            NSLog(@"%@",tempMovie.commentMutableArray);
             
-            //Movie *selectedMovie=[AppDelegate getStaticMovie];
-            //selectedMovie.commentMutableArray=self.messageMutableArray;
+            [self.selectedMovie.commentMutableArray removeAllObjects];
+            [self.selectedMovie.commentMutableArray addObject:self.messageMutableArray];
             
-           // [AppDelegate setStaticMovie:selectedMovie];
-            
-            //[AppDelegate setStaticCommentMutableArray:self.messageMutableArray];
-            
-            // self.selectedMovie.commentMutableArray=self.messageMutableArray;
-            
-            // [AppDelegate setStaticMovie:self.selectedMovie];
+            [movieTableListMuTableArray removeObjectAtIndex:[AppDelegate getStaticMovieRow]];
+            [movieTableListMuTableArray insertObject:self.selectedMovie atIndex:[AppDelegate getStaticMovieRow]];
+            [AppDelegate setStaticMovieMutableArray:movieTableListMuTableArray];
+            [appdelegate.mainWindowController.mainMovieTableView reloadData];
            
-           // NSLog(@"%@",[[AppDelegate getStaticMovie] valueForKey:@"name"]);
-           // NSLog(@"%@",[[AppDelegate getStaticMovie] valueForKey:@"commentMutableArray"]);
-            
-            //[appdelegate.mainWindowController.mainMovieTableView reloadData];
-            NSLog(@"%@",[[[AppDelegate getStaticMovieMutableArray] objectAtIndex:1] valueForKey:@"commentMutableArray"]);
         }
         
     }
@@ -131,9 +116,32 @@
         [alert setInformativeText:@"若无登陆账号，请先注册"];
         [alert setAlertStyle:NSInformationalAlertStyle];
         [alert runModal];
-
       }
+}
 
+-(NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
+{
+    return  [self.messageMutableArray count];
+}
+
+
+-(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
+    if ([tableColumn.identifier isEqual:@"sender"]) {
+        NSTextField *senderLabel=[tableView makeViewWithIdentifier:@"sender" owner:self];
+       senderLabel.stringValue=[[self.messageMutableArray objectAtIndex:row] valueForKey:@"sender"];
+        return senderLabel;
+    }
+    if ([tableColumn.identifier isEqual:@"comment"]) {
+        NSTextField *commentLabel=[tableView makeViewWithIdentifier:@"comment" owner:self];
+        commentLabel.stringValue=[[self.messageMutableArray objectAtIndex:row] valueForKey:@"comment"];
+        return commentLabel;
+    }
+    if ([tableColumn.identifier isEqual:@"time"]) {
+        NSTextField *timeLabel=[tableView makeViewWithIdentifier:@"time" owner:self];
+        timeLabel.stringValue=[[self.messageMutableArray objectAtIndex:row] valueForKey:@"time"];
+        return timeLabel;
+    }
+    return nil;
 }
 -(IBAction)clickOneScoreBtn:(id)sender{
 
