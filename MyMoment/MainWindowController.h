@@ -9,16 +9,20 @@
 #import <Cocoa/Cocoa.h>
 #import "MovieDetailViewController.h"
 #import "RigisterViewController.h"
+#import "SearchResultViewController.h"
 
 
+@class MusicDetailViewController;
 @interface MainWindowController : NSWindowController<NSWindowDelegate>
 @property IBOutlet NSTabView *mainTab;
 @property NSView *mainView;
 @property NSView *movieView;
 @property NSView *musicView;
 @property NSView *movieDetailView;
+@property NSView *musicDetailView;
 @property(strong)IBOutlet MovieDetailViewController *movieDetailViewController;
 @property (strong)IBOutlet RigisterViewController *registerViewController;
+@property(strong)IBOutlet MusicDetailViewController *musicDetailViewController;
 @property IBOutlet NSButton *mainBtn;
 @property IBOutlet NSButton *movieBtn;
 @property IBOutlet NSButton *musicBtn;
@@ -39,5 +43,12 @@
 @property IBOutlet NSTableView *musicScoreRankingTableView;
 @property IBOutlet NSButton *musicImageBtn;
 @property IBOutlet NSScrollView *musicScrollView;
+
+@property IBOutlet NSSearchField *searchField;
+@property (strong)IBOutlet SearchResultViewController *searchResultViewController;
+@property NSView *searchResultView;
+
+
+
 
 @end

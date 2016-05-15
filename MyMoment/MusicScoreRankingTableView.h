@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
+#import "AppDelegate.h"
 
-@interface MusicScoreRankingTableView : NSObject
+@interface MusicScoreRankingTableView : NSObject<NSTableViewDataSource,NSTableViewDelegate>
 
 @end

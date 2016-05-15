@@ -11,11 +11,8 @@
 #import "MovieDetailViewController.h"
 #import "AppDelegate.h"
 #import "UserCoreData.h"
-
-
-
+#import "MusicDetailViewController.h"
 @interface MainWindowController ()
-
 
 @end
 
@@ -34,36 +31,12 @@
     NSRect rigsterFrame=NSMakeRect(0, 47.5, 179, 468);
     [self.registerViewController.view setFrame:rigsterFrame];
     
-      [self.window.contentView addSubview:self.registerViewController.view];
+    [self.window.contentView addSubview:self.registerViewController.view];
     self.mainView=[self.mainTab tabViewItemAtIndex:0].view;
     self.movieView=[self.mainTab tabViewItemAtIndex:1].view;
     self.musicView=[self.mainTab tabViewItemAtIndex:2].view;
-    
-
-    //self.mainMovieScrollView.hasHorizontalScroller=YES;
-    //[self.mainMovieScrollView setNeedsDisplay:YES];
-    
+    self.searchResultViewController=[[SearchResultViewController alloc]initWithNibName:@"SearchResultViewController" bundle:nil];
 }
-
-
-
-
--(BOOL)windowShouldClose:(id)sender{
-    
-    //save data when app closed
- //   AppDelegate *appdelegate=[NSApp delegate];
- //   NSMutableArray *tempUserMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticUserMutableArray]];
- //   UserCoreData *userCoreData=[[UserCoreData alloc]initWithEntity:[NSEntityDescription entityForName:@"UserCoreData" inManagedObjectContext:[appdelegate managedObjectContext]] insertIntoManagedObjectContext:appdelegate.managedObjectContext];
- //   userCoreData.userArrayData=[NSKeyedArchiver archivedDataWithRootObject:tempUserMutableArray];
- //   NSError *error=nil;
- //   [appdelegate.managedObjectContext save:&error];
-    
-    // save end
-    
-    return YES;
-}
-
-
 
 -(id)initWithWindowNibName:(NSString *)windowNibName{
 
@@ -75,12 +48,11 @@
 }
 -(IBAction)clickMainBtn:(id)sender{
     NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
-   
+    [self.mainView setHidden:NO];
     [self.mainView setFrame:showFrame];
     [self.movieView setHidden:YES];
-    [self.mainView setHidden:NO];
+    [self.searchResultViewController.view setHidden:YES];
     [self.musicView setHidden:YES];
-    
     [self.window.contentView addSubview:self.mainView];
     
     [self.mainBtn setImage:[NSImage imageNamed:@"Main_Yellow"]];
@@ -88,10 +60,13 @@
     [self.musicBtn setImage:[NSImage imageNamed:@"Music"]];
     
     [self.movieDetailViewController.view setHidden:YES];
+    [self dismissController:self.registerViewController];
     [self.registerViewController.registerView setHidden:YES];
     [self.registerViewController.modifyView setHidden:YES];
     [self.registerViewController.favoriteView setHidden:YES];
     [self.registerViewController.historyView setHidden:YES];
+    [self.musicDetailViewController.view setHidden:YES];
+  
     
 }
 
@@ -102,17 +77,19 @@
     [self.musicBtn setImage:[NSImage imageNamed:@"Music"]];
     
     [self.movieScoreRankingTableView reloadData];
-    NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
+     NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     [self.movieView setFrame:showFrame];
     [self.mainView setHidden:YES];
     [self.movieView setHidden:NO];
     [self.window.contentView addSubview:self.movieView];
     [self.movieDetailView setHidden:YES];
     [self.musicView setHidden:YES];
+    [self.searchResultView setHidden:YES];
     [self.registerViewController.registerView setHidden:YES];
     [self.registerViewController.modifyView setHidden:YES];
-      [self.registerViewController.favoriteView setHidden:YES];
-     [self.registerViewController.historyView setHidden:YES];
+    [self.registerViewController.favoriteView setHidden:YES];
+    [self.registerViewController.historyView setHidden:YES];
+    [self.musicDetailViewController.view setHidden:YES];
 }
 
 -(IBAction)clickMusicBtn:(id)sender{
@@ -121,17 +98,21 @@
     [self.mainBtn setImage:[NSImage imageNamed:@"Main"]];
     [self.movieBtn setImage:[NSImage imageNamed:@"Movie"]];
     
-NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
+    [self.musicScoreRankingTableView reloadData];
+    
+    NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     [self.musicView setFrame:showFrame];
     [self.mainView setHidden:YES];
     [self.movieView setHidden:YES];
     [self.movieDetailView setHidden:YES];
     [self.musicView setHidden:NO];
+    [self.searchResultView setHidden:YES];
     [self.window.contentView addSubview:self.musicView];
     [self.registerViewController.registerView setHidden:YES];
     [self.registerViewController.modifyView setHidden:YES];
     [self.registerViewController.favoriteView setHidden:YES];
-     [self.registerViewController.historyView setHidden:YES];
+    [self.registerViewController.historyView setHidden:YES];
+    [self.musicDetailView setHidden:YES];
 
 }
 
@@ -170,7 +151,6 @@ NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
         }
         else
         {     [tempHistoryListMutableArray insertObject:selectedMovie atIndex:0];
-            //[tempHistoryListMutableArray addObject:selectedMovie];
         }
     }
     
@@ -180,9 +160,13 @@ NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     self.movieDetailViewController=[[MovieDetailViewController alloc]initWithNibName:@"MovieDetailViewController" bundle:nil];
     self.movieDetailView=self.movieDetailViewController.view;
+    //
+    
+//
     [self.movieDetailView setFrame:showFrame];
     [self.mainView setHidden:YES];
     [self.window.contentView addSubview:self.movieDetailView];
+    
 }
 
 -(IBAction)clickMovieAllTableView:(id)sender{
@@ -265,9 +249,202 @@ NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
     [self.mainView setHidden:YES];
     [self.movieView setHidden:YES];
     [self.window.contentView addSubview:self.movieDetailView];
-    
-
 }
 
 
+-(IBAction)clickMusicTableView:(id)sender{
+    NSInteger row=self.mainMusicTableView.selectedRow;
+    [AppDelegate setStaticMusicRow:row];
+    
+    NSMutableArray *mainMusicMutableArray=[AppDelegate getStaticMusicMutableArray];
+    Music *selectedMusic=[mainMusicMutableArray objectAtIndex:row];
+    [AppDelegate setStaticMusic:selectedMusic];
+    
+    //
+    NSMutableArray *tempMusicHistoryListMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticMusicHistoryListMutableArray]];
+    if ([tempMusicHistoryListMutableArray count]==0)
+    {
+        [tempMusicHistoryListMutableArray addObject:selectedMusic];
+    }
+    else
+    {
+        if ([tempMusicHistoryListMutableArray containsObject:selectedMusic])
+        {
+            [tempMusicHistoryListMutableArray removeObject:selectedMusic];
+            [tempMusicHistoryListMutableArray insertObject:selectedMusic atIndex:0];
+        }
+        else
+        {     [tempMusicHistoryListMutableArray insertObject:selectedMusic atIndex:0];
+        }
+    }
+    
+    [AppDelegate setstaticMusicHistoryListMutableArray:tempMusicHistoryListMutableArray];
+    [self.registerViewController.historyListViewController.musicHistoryListTableView reloadData];
+    //
+    
+    NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
+    self.musicDetailViewController=[[MusicDetailViewController alloc]initWithNibName:@"MusicDetailViewController" bundle:nil];
+    self.musicDetailView=self.musicDetailViewController.view;
+
+    [self.musicDetailView setFrame:showFrame];
+    [self.mainView setHidden:YES];
+    [self.window.contentView addSubview:self.musicDetailView];
+}
+
+-(IBAction)clickAllMusicTableView:(id)sender{
+    NSInteger row=self.musicAllTableView.selectedRow;
+    NSMutableArray *mainMusicMutableArray=[AppDelegate getStaticMusicMutableArray];
+    Music *selectedMusic=[mainMusicMutableArray objectAtIndex:row];
+    [AppDelegate setStaticMusic:selectedMusic];
+    
+    //
+    NSMutableArray *tempMusicHistoryListMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticMusicHistoryListMutableArray]];
+    if ([tempMusicHistoryListMutableArray count]==0)
+    {
+        [tempMusicHistoryListMutableArray addObject:selectedMusic];
+    }
+    else
+    {
+        if ([tempMusicHistoryListMutableArray containsObject:selectedMusic])
+        {
+            [tempMusicHistoryListMutableArray removeObject:selectedMusic];
+            [tempMusicHistoryListMutableArray insertObject:selectedMusic atIndex:0];
+        }
+        else
+        {     [tempMusicHistoryListMutableArray insertObject:selectedMusic atIndex:0];
+        }
+    }
+    
+    [AppDelegate setstaticMusicHistoryListMutableArray:tempMusicHistoryListMutableArray];
+    [self.registerViewController.historyListViewController.musicHistoryListTableView reloadData];
+    //
+    NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
+    self.musicDetailViewController=[[MusicDetailViewController alloc]initWithNibName:@"MusicDetailViewController" bundle:nil];
+    self.musicDetailView=self.musicDetailViewController.view;
+    [self.musicDetailView setFrame:showFrame];
+    [self.mainView setHidden:YES];
+    [self.movieView setHidden:YES];
+    [self.musicView setHidden:YES];
+    [self.window.contentView addSubview:self.musicDetailView];
+}
+
+-(IBAction)clickMusicScoreRankingTableView:(id)sender{
+    NSInteger row=self.musicScoreRankingTableView.selectedRow;
+    NSMutableArray *musicMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticMusicMutableArray]];
+    NSSortDescriptor *scoreSortDescriptor=[[NSSortDescriptor alloc]initWithKey:@"score" ascending:NO];
+    NSArray *scoreSortArray=@[scoreSortDescriptor];
+    NSArray *sortedArray=[musicMutableArray sortedArrayUsingDescriptors:scoreSortArray];
+    NSMutableArray *musicScoreRankingMutaleArray=[[NSMutableArray alloc]initWithArray:sortedArray];
+    
+    Music *selectedMusic=[musicScoreRankingMutaleArray objectAtIndex:row];
+    [AppDelegate setStaticMusic:selectedMusic];
+    //
+    NSMutableArray *tempMusicHistoryListMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticMusicHistoryListMutableArray]];
+    if ([tempMusicHistoryListMutableArray count]==0)
+    {
+        [tempMusicHistoryListMutableArray addObject:selectedMusic];
+    }
+    else
+    {
+        if ([tempMusicHistoryListMutableArray containsObject:selectedMusic])
+        {
+            [tempMusicHistoryListMutableArray removeObject:selectedMusic];
+            [tempMusicHistoryListMutableArray insertObject:selectedMusic atIndex:0];
+        }
+        else
+        {     [tempMusicHistoryListMutableArray insertObject:selectedMusic atIndex:0];
+        }
+    }
+    
+    [AppDelegate setstaticMusicHistoryListMutableArray:tempMusicHistoryListMutableArray];
+    [self.registerViewController.historyListViewController.musicHistoryListTableView reloadData];
+    //
+    NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
+    self.musicDetailViewController=[[MusicDetailViewController alloc]initWithNibName:@"MusicDetailViewController" bundle:nil];
+    self.musicDetailView=self.musicDetailViewController.view;
+    [self.musicDetailView setFrame:showFrame];
+    [self.mainView setHidden:YES];
+    [self.movieView setHidden:YES];
+    [self.musicView setHidden:YES];
+    [self.window.contentView addSubview:self.musicDetailView];
+
+}
+
+- (void)awakeFromNib
+{
+    // add the searchMenu to this control, allowing recent searches to be added.
+    //
+    // note that we could build this menu inside our nib, but for clarity we're
+    // building the menu in code to illustrate the use of tags:
+    //		NSSearchFieldRecentsTitleMenuItemTag, NSSearchFieldNoRecentsMenuItemTag, etc.
+
+    if ([self.searchField respondsToSelector:@selector(setRecentSearches:)])
+    {
+        NSMenu *searchMenu = [[NSMenu alloc] initWithTitle:@"Search Menu"];
+        [searchMenu setAutoenablesItems:YES];
+        
+        // first add our custom menu item (Important note: "action" MUST be valid or the menu item is disabled)
+        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"Custom" action:nil keyEquivalent:@""];
+        [item setTarget: self];
+        [searchMenu insertItem:item atIndex:0];
+        
+        // add our own separator to keep our custom menu separate
+        NSMenuItem *separator =  [NSMenuItem separatorItem];
+        [searchMenu insertItem:separator atIndex:1];
+        
+        NSMenuItem *recentsTitleItem = [[NSMenuItem alloc] initWithTitle:@"Recent Searches" action:nil keyEquivalent:@""];
+        // tag this menu item so NSSearchField can use it and respond to it appropriately
+        [recentsTitleItem setTag:NSSearchFieldRecentsTitleMenuItemTag];
+        [searchMenu insertItem:recentsTitleItem atIndex:2];
+        
+        NSMenuItem *norecentsTitleItem = [[NSMenuItem alloc] initWithTitle:@"No recent searches" action:nil keyEquivalent:@""];
+        // tag this menu item so NSSearchField can use it and respond to it appropriately
+        [norecentsTitleItem setTag:NSSearchFieldNoRecentsMenuItemTag];
+        [searchMenu insertItem:norecentsTitleItem atIndex:3];
+        
+        NSMenuItem *recentsItem = [[NSMenuItem alloc] initWithTitle:@"Recents" action:nil keyEquivalent:@""];
+        // tag this menu item so NSSearchField can use it and respond to it appropriately
+        [recentsItem setTag:NSSearchFieldRecentsMenuItemTag];
+        [searchMenu insertItem:recentsItem atIndex:4];
+        
+        NSMenuItem *separatorItem = (NSMenuItem*)[NSMenuItem separatorItem];
+        // tag this menu item so NSSearchField can use it, by hiding/show it appropriately:
+        [separatorItem setTag:NSSearchFieldRecentsTitleMenuItemTag];
+        [searchMenu insertItem:separatorItem atIndex:5];
+        
+        NSMenuItem *clearItem = [[NSMenuItem alloc] initWithTitle:@"Clear" action:nil keyEquivalent:@""];
+        [clearItem setTag:NSSearchFieldClearRecentsMenuItemTag];	// tag this menu item so NSSearchField can use it
+        [searchMenu insertItem:clearItem atIndex:6];
+        
+        id searchCell = [self.searchField cell];
+        [searchCell setMaximumRecents:20];
+        [searchCell setSearchMenuTemplate:searchMenu];
+    }
+}
+
+-(IBAction)clickSearchField:(id)sender{
+    self.searchResultView=self.searchResultViewController.view;
+    [self.searchResultView setHidden:NO];
+    NSString *searchFieldString=self.searchField.stringValue;
+    NSMutableArray *tempMovieArray=[AppDelegate getStaticMovieMutableArray];
+    NSInteger y=[tempMovieArray count];
+    Movie *tempMovie=[[Movie alloc]init];
+    for (NSInteger i=0; i<y; i++) {
+        if ([[[tempMovieArray objectAtIndex:i] valueForKey:@"name"] isEqualTo:searchFieldString]){
+            tempMovie=[tempMovieArray objectAtIndex:i];
+            [AppDelegate setStaticMovie:tempMovie];
+            NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
+            [self.searchResultView setFrame:showFrame];
+            [self.mainView setHidden:YES];
+            [self.movieView setHidden:YES];
+            [self.musicView setHidden:YES];
+            [self.registerViewController.registerView setHidden:YES];
+            [self.registerViewController.modifyView setHidden:YES];
+            [self.registerViewController.favoriteView setHidden:YES];
+            [self.registerViewController.historyView setHidden:YES];
+            [self.window.contentView addSubview:self.searchResultView];
+            [self.searchResultViewController.searchResultTableView reloadData];
+            }
+            }
+}
 @end

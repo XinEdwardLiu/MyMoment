@@ -10,4 +10,5 @@
 
 @interface HistoryListViewController : NSViewController<NSTableViewDelegate,NSTableViewDataSource>
 @property IBOutlet NSTableView *historyListTableView;
+@property IBOutlet NSTableView *musicHistoryListTableView;
 @end

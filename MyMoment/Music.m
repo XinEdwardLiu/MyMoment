@@ -9,7 +9,7 @@
 #import "Music.h"
 
 @implementation Music
--(Music*)initWithName:(NSString *)newName WithImage:(NSImage *)newImage WithTypes:(NSString *)newType WithAuthor:(NSString *)newAuthor WithIntroduction:(NSString *)newIntroduction WithCommentMutableArray:(NSMutableArray *)newCommentMutableArray WithScore:(NSInteger)newScore{
+-(Music*)initWithName:(NSString *)newName WithImage:(NSImage *)newImage WithTypes:(NSString *)newType WithAuthor:(NSString *)newAuthor WithIntroduction:(NSString *)newIntroduction WithCommentMutableArray:(NSMutableArray *)newCommentMutableArray WithScore:(NSInteger)newScore WithIsFavorite:(BOOL)favorite{
     self=[super self];
     self.name=newName;
     self.image=newImage;
@@ -18,6 +18,7 @@
     self.introduction=newIntroduction;
     self.commentMutableArray=newCommentMutableArray;
     self.score=newScore;
+    self.isFavorite=favorite;
     return self;
     
     

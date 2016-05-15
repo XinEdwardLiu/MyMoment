@@ -8,6 +8,7 @@
 
 #import "RegisterInfoViewController.h"
 #import "AppDelegate.h"
+#import "UserCoreData.h"
 
 @interface RegisterInfoViewController ()
 
@@ -65,6 +66,9 @@
         [AppDelegate setstaticUserMutableArray:temperUserMutableArray];
         [AppDelegate setStaticUser:temperUser];
         [AppDelegate setStaticUserRow:([temperUserMutableArray count]-1)];
+       [self clearUserCoreData];
+        [self saveNewUser];
+            NSLog(@"%@",[appdelegate.managedObjectContext executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"UserCoreData"] error:nil]);
         }
         
         else if ([AppDelegate getStaticAccountState]==YES){
@@ -77,15 +81,37 @@
             AppDelegate *appdelegate=[NSApp delegate];
             appdelegate.mainWindowController.registerViewController.nameLabel.stringValue=temperUser.userName;
             [appdelegate.mainWindowController.mainView setHidden:NO];
-          
-        
+            [self clearUserCoreData];
+            [self saveNewUser];
         }
-        
     }
-    
-    
-    
  
+}
+
+-(void)saveNewUser{
+    AppDelegate *appdelegate=[NSApp delegate];
+    NSMutableArray *tempUserMutableArray=[[NSMutableArray alloc]initWithArray:[AppDelegate getStaticUserMutableArray]];
+    UserCoreData *userCoreData=[[UserCoreData alloc]initWithEntity:[NSEntityDescription entityForName:@"UserCoreData" inManagedObjectContext:[appdelegate managedObjectContext]] insertIntoManagedObjectContext:appdelegate.managedObjectContext];
+    userCoreData.userArrayData=[NSKeyedArchiver archivedDataWithRootObject:tempUserMutableArray];
+    NSError *error=nil;
+    [appdelegate.managedObjectContext save:&error];
+}
+
+-(void)clearUserCoreData{
+    AppDelegate *appdelegate=[NSApp delegate];
+    NSFetchRequest *request=[NSFetchRequest fetchRequestWithEntityName:@"UserCoreData"];
+    NSError *error = nil;
+    NSArray *result = [appdelegate.managedObjectContext executeFetchRequest:request error:&error];
+    for (NSManagedObject *user in result) {
+        [appdelegate.managedObjectContext deleteObject:user];
+    }
+  
+    [appdelegate.managedObjectContext save:&error];
+    
+   // NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
+    
+    //NSError *error = nil;
+    //[appdelegate.persistentStoreCoordinator executeRequest:delete withContext:appdelegate.managedObjectContext error:&error];
 }
 
 @end

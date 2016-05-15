@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
+#import "AppDelegate.h"
 
-@interface MusicAllTableViewController : NSObject
+@interface MusicAllTableViewController : NSObject<NSTableViewDelegate,NSTableViewDataSource>
 
 @end

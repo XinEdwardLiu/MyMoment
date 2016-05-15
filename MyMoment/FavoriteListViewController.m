@@ -8,6 +8,7 @@
 
 #import "FavoriteListViewController.h"
 #import "AppDelegate.h"
+#import "MusicFavoriteListTableViewController.h"
 @interface FavoriteListViewController ()
 
 @end
@@ -71,6 +72,12 @@
     [self.favoriteListTableView reloadData];
 }
 
-
+//-(IBAction)clickDeleteFavoriteMusicBtn:(id)sender{
+//    NSInteger selected = [self.musicFavoriteListTableView rowForView:sender];
+//    NSMutableArray *tempMusicFavoriteListMutableArray=[AppDelegate getStaticMusicFavoriteListMutableArray];
+//    [tempMusicFavoriteListMutableArray removeObjectAtIndex:selected];
+//    [AppDelegate setstaticMusicFavoriteListMutableArray:tempMusicFavoriteListMutableArray];
+//    [self.musicFavoriteListTableView reloadData];
+//}
 
 @end

@@ -15,9 +15,10 @@
 @property  NSString *author;
 @property  NSString *introduction;
 @property  NSMutableArray *commentMutableArray;
-@property  NSInteger score;
+@property  float score;
+@property BOOL isFavorite;
 
 
--(Music*)initWithName:(NSString *)newName WithImage:(NSImage *)newImage WithTypes:(NSString *)newType WithAuthor:(NSString *)newAuthor WithIntroduction:(NSString *)newIntroduction WithCommentMutableArray:(NSMutableArray *)newCommentMutableArray WithScore:(NSInteger)newScore;
+-(Music*)initWithName:(NSString *)newName WithImage:(NSImage *)newImage WithTypes:(NSString *)newType WithAuthor:(NSString *)newAuthor WithIntroduction:(NSString *)newIntroduction WithCommentMutableArray:(NSMutableArray *)newCommentMutableArray WithScore:(NSInteger)newScore WithIsFavorite:(BOOL)favorite;
 
 @end
